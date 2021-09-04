@@ -6,11 +6,11 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class Main {
-    private static final String gameOne = "GAME ONE",
-                                gameTwo = "GAME TWO",
-                                gameThree = "GAME THREE",
-                                gameFour = "GAME FOUR",
-                                gameFive = "GAME FIVE";
+    private static final String gameOne = "Maze",
+                                gameTwo = "Snake",
+                                gameThree = "Sudoku",
+                                gameFour = "Word Search",
+                                gameFive = "Slider Puzzle";
     private static JFrame frame;
     private static JPanel panel;
     private static JButton game1Button , game2Button, game3Button, game4Button, game5Button, aboutButton;
