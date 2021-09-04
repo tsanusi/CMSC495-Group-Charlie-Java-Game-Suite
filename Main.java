@@ -3,9 +3,9 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-
+// NOTE: FOLLOW STEP ONE,TWO, AND THREE AND LINES 8, 53, and 86.
 public class Main {
+    // Step 1 : Place Game names here in the following string designations. The Maze Game is there as an example.
     private static final String gameOne = "Maze",
                                 gameTwo = "Snake",
                                 gameThree = "Sudoku",
@@ -50,62 +50,52 @@ public class Main {
         panel.add (secondDialogueBox);
         frame.add (panel);
         frame.setVisible(true);
+        // Step 2: In the following lines starting with line 57, replace that line with the name of your game's
+        //         main class followed by ".main(null);" The maze game is there as examples. Replace "Maze" with
+        //         the main class of your game file.
         game1Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                try {
-                    //<NAMEOFGAMEGILE>.main(null);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                Maze.main(null);
             }
         });
         game2Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                try {
-                    //<NAMEOFGAMEGILE>.main(null);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                Maze.main(null);
             }
         });
         game3Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                try {
-                    //<NAMEOFGAMEGILE>.main(null);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                Maze.main(null);
             }
         });
         game4Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                try {
-                    //<NAMEOFGAMEGILE>.main(null);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                Maze.main(null);
             }
         });
         game5Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                try {
-                    //<NAMEOFGAMEGILE>.main(null);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                Maze.main(null);
             }
         });
+        // Step 3: Complete the credit with your contributions here followed by "\n" for each new line.
+        //         This is the about button
         aboutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 //custom title, no icon
                 JOptionPane.showMessageDialog(frame,
-                        "CMSC 495 Game Suite.\nCMSC 495\nFall 2021\nMark Munoz: Professor",
+                        "CMSC 495 Game Suite.\n" +
+                                "CMSC 495\n" +
+                                "Fall 2021\n" +
+                                "Mark Munoz: Professor\n" +
+                                "Credits:\n" +
+                                "(INPUT CREDITS HERE:",
                         "CMSC 495 Game Suite",
                         JOptionPane.PLAIN_MESSAGE);
             }
