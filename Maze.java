@@ -4,7 +4,6 @@
 // Professor: Mark Munoz                                   //
 // Programmers: Wayne Mack                                 //
 /////////////////////////////////////////////////////////////
-package Maze;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -20,16 +19,16 @@ public class Maze {
     JTextField timeDisplay;
     static JFrame Frame;
     static GameScreen gameScreen;
-    static MazeLevelData mazeLevelData;
+    static TileMap mazeLevelData;
     static LevelNames levelName;
     static Scanner scanner;
     static KeyListener kListener;
     Maze () {
-        levelName = LevelNames.LEVEL_ONE;
+        levelName = LevelNames.LEVEL_TWO;
         Frame = new JFrame("Maze Game");
         Frame.setResizable(false);
         Frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        mazeLevelData = new MazeLevelData(levelName);
+        mazeLevelData = new TileMap(levelName);
         gameScreen = new GameScreen(mazeLevelData.mazeGrid);
         int xAt20Percent = (int)(((double)gameScreen.xTotalDimensions)* .2);
         int yAt20Percent = (int)(((double)gameScreen.xTotalDimensions) * .2);
@@ -43,7 +42,6 @@ public class Maze {
             }
             @Override
             public void keyPressed(KeyEvent e) {
-                System.out.println("Working");
                 switch (e.getKeyCode()) {
                     case KeyEvent.VK_W:
                     case KeyEvent.VK_UP: {
@@ -67,6 +65,7 @@ public class Maze {
                     }
                 }
                 gameScreen.repaint();
+
             }
             @Override
             public void keyReleased(KeyEvent e) {
@@ -81,7 +80,9 @@ public class Maze {
     }
 }
 class GameScreen extends Canvas {
-    final int BLOCK_SIZE = 35;
+    final int BLOCK_SIZE = 50;
+    static int oldXposition,oldYposition,playerXPosition, playerYPosition;
+
     int xTotalDimensions;
     int yTotalDimensions;
     static MazeItems[][] mazeItems;
@@ -92,6 +93,14 @@ class GameScreen extends Canvas {
         copyMazeItems(mItems);
         mazeIsDrawn = false;
     }
+    public static void copyMazeItems(MazeItems[][] mItems, int newX, int newY) {
+        oldXposition = playerXPosition;
+        oldYposition = playerYPosition;
+        playerYPosition = newX;
+        playerYPosition = newY;
+        copyMazeItems(mItems);
+    }
+
     public static void copyMazeItems(MazeItems[][] mItems) {
         mazeItems = new MazeItems[mItems.length][mItems[0].length];
         for (int i = 0; i < mItems.length; i++) {
@@ -101,190 +110,62 @@ class GameScreen extends Canvas {
         }
     }
     public void paint(Graphics g) {
-
-        g.setColor(Color.GRAY);
-        g.drawRect(0,0,xTotalDimensions,yTotalDimensions);
-        g.fillRect(0,0,xTotalDimensions,yTotalDimensions);
-        for (int i = 0; i < mazeItems.length; i++) {
-            for (int j = 0; j <mazeItems[0].length; j++) {
-                switch (mazeItems[i][j]) {
-                    case WALL: {
-                        /*g.setColor(Color.GRAY);
-                        g.drawRect((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
-                        g.fillRect((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);*/
-                        break;
-                    }
-                    case FLOOR: {
-                        g.setColor(Color.BLACK);
-                        g.drawRect((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
-                        g.fillRect((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
-                        break;
-                    }
-                    case ENTRANCE: {
-                        g.setColor(Color.BLACK);
-                        g.drawRect((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
-                        g.fillRect((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
-                        g.setColor(Color.YELLOW);
-                        g.drawOval((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
-                        g.fillOval((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
-                        break;
-                    }
-                    case EXIT: {
-                        g.setColor(Color.BLACK);
-                        g.drawRect((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
-                        g.fillRect((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
-                        g.setColor(Color.GREEN);
-                        g.drawOval((i * BLOCK_SIZE) , (j * BLOCK_SIZE) , BLOCK_SIZE, BLOCK_SIZE);
-                        g.fillOval((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
-                        break;
-                    }
-                    case PLAYER_POSITION: {
-                        System.out.println("Draw Player at " + i + "," + j);
-                        g.setColor(Color.BLACK);
-                        g.drawRect((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
-                        g.fillRect((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
-                        g.setColor(Color.BLUE);
-                        g.drawOval((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
-                        g.fillOval((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
-                    }
-                }
-            }
+            g.setColor(Color.GRAY);
+            g.drawRect(0, 0, xTotalDimensions, yTotalDimensions);
+            g.fillRect(0, 0, xTotalDimensions, yTotalDimensions);
+            fillColumn(g, 0);
+            mazeIsDrawn = true;
+    }
+    private void fillColumn (Graphics g, int column) {
+        fillRow (g,column,0);
+        if (column < mazeItems.length - 1) {
+            fillColumn(g,column + 1);
         }
     }
-}
-class MazeLevelData {
-    String levelName;
-    MazeItems [][] mazeGrid;
-    int xDimensions, yDimensions,
-            playerX, playerY,
-            startX,startY,
-            finishX,FinishY;
-    MazeLevelData (LevelNames levelName) {
-        switch (levelName) {
-            case LEVEL_ONE: {
-                setDimensions(10,10);
-                makeVerticalPath(1,1,7);
-                makeHorizontalPath(1,3,1);
-                makeVerticalPath(3,1,3);
-                makeHorizontalPath(1,8,5);
-                makeHorizontalPath(3,5,3);
-                makeVerticalPath(4,4,6);
-                makeHorizontalPath(1,7,7);
-                makeVerticalPath(1,1,10);
-                makeHorizontalPath(1,10,1);
-                makeExit(3,5);
-                makePlayer(2,1);
+    private void fillRow (Graphics g, int column, int row) {
+        int i = column, j = row;
+        switch (mazeItems[column][row]) {
+            case FLOOR: {
+                g.setColor(Color.BLACK);
+                g.drawRect((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);g.fillRect((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
                 break;
             }
-            case LEVEL_TWO: {
-
-            }
-            case LEVEL_THREE: {
-
-            }
-            case LEVEL_FOUR: {
-
-            }
-            case LEVEL_FIVE: {
-
-            }
-            case LEVEL_SIX: {
-
-            }
-            case LEVEL_SEVEN: {
-
-            }
-            case LEVEL_EIGHT: {
-
-            }
-            case LEVEL_NINE: {
-
-            }
-            case LEVEL_TEN: {
-
-            }
-            case LEVEL_ELEVEN: {
-
-            }
-            case LEVEL_TWELVE: {
-
-            }
-        }
-    }
-    private int getxDimensions() {
-        return xDimensions;
-    }
-    private int getyDimensions() {
-        return yDimensions;
-    }
-    private void setDimensions (int xRows, int yRows) {
-        mazeGrid = new MazeItems[xRows + 2][yRows + 2];
-        this.xDimensions = 20 * (xRows + 2);
-        this.yDimensions = 20 * (yRows + 2);
-        for (int i = 0; i <= xRows + 1; i++) {
-            for (int j = 0; j <= yRows+1; j++ ) {
-                mazeGrid[i][j] = MazeItems.WALL;
-            }
-        }
-    }
-    private void makePlayer(int x, int y) {
-        this.playerX = x;
-        this.playerY = y;
-        repositionPlayer();
-    }
-    private void makeExit(int x, int y) {
-        mazeGrid[x][y] = MazeItems.EXIT;
-    }
-    private void makeFloor(int x, int y) {
-        mazeGrid[x][y] = MazeItems.FLOOR;
-    }
-    private void makeVerticalPath (int columnPoint, int firstRowPoint, int secondRowPoint) {
-        for (int yRow = firstRowPoint; yRow <= secondRowPoint; yRow++ ) {
-            makeFloor(columnPoint,yRow);
-        }
-    }
-    private void makeHorizontalPath (int x1, int x2,int y) {
-        System.out.println (x1 + " " + x2);
-        for (int xColumn = x1; xColumn <= x2; xColumn++) {
-            makeFloor(xColumn,y);
-            System.out.println(xColumn);
-        }
-    }
-    private Boolean canMoveto (int x, int y) {
-        return mazeGrid[x][y] != MazeItems.WALL;
-    }
-    private void repositionPlayer () {
-        mazeGrid[playerX][playerY] = MazeItems.PLAYER_POSITION;
-    }
-    public void move(Directions direction) {
-        int newPositionX = this.playerX;
-        int newPositionY = this.playerY;
-        switch (direction) {
-            case LEFT: {
-                newPositionX--;
+            case ENTRANCE: {
+                g.setColor(Color.BLACK);
+                g.drawRect((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
+                g.fillRect((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
+                g.setColor(Color.YELLOW);
+                g.drawOval((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
+                g.fillOval((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
                 break;
             }
-            case RIGHT: {
-                newPositionX++;
+            case EXIT: {
+                g.setColor(Color.BLACK);
+                g.drawRect((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
+                g.fillRect((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
+                g.setColor(Color.GREEN);
+                g.drawOval((i * BLOCK_SIZE) , (j * BLOCK_SIZE) , BLOCK_SIZE, BLOCK_SIZE);
+                g.fillOval((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
                 break;
             }
-            case UP: {
-                newPositionY--;
-                break;
-            }
-            case DOWN: {
-                newPositionY++;
-                break;
+            case PLAYER_POSITION: {
+                System.out.println("Draw Player at " + i + "," + j);
+                playerXPosition = i;
+                playerYPosition = j;
+                repositionCharacter(g);
             }
         }
-        System.out.println (canMoveto(newPositionX,newPositionY) + " " + direction);
-        if (canMoveto(newPositionX,newPositionY)) {
-            makeFloor(playerX,playerY);
-            playerX = newPositionX;
-            playerY = newPositionY;
-            System.out.println ("Player Position: " + playerX + "," + playerY);
-            mazeGrid[playerX][playerY] = MazeItems.PLAYER_POSITION;
-            GameScreen.copyMazeItems(mazeGrid);
+        if (row < mazeItems[column].length - 1) {
+            fillRow(g,column,row + 1);
         }
     }
+    private void repositionCharacter (Graphics g) {
+        g.setColor(Color.BLACK);
+        g.drawRect((playerXPosition * BLOCK_SIZE), (playerYPosition * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
+        g.fillRect((playerXPosition * BLOCK_SIZE), (playerYPosition * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
+        g.setColor(Color.BLUE);
+        g.drawOval((playerXPosition * BLOCK_SIZE), (playerYPosition * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
+        g.fillOval((playerXPosition * BLOCK_SIZE), (playerYPosition * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
+    }
+
 }
