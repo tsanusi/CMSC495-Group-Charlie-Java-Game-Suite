@@ -39,7 +39,7 @@ public class Main {
         game3Button.setBounds (75,210,150,40);
         game4Button.setBounds (75,270,150,40);
         game5Button.setBounds (75,330,150,40);
-        aboutButton.setBounds (100,370,100,20);
+        aboutButton.setBounds (100,395,100,40);
         panel.add (game1Button);
         panel.add (game2Button);
         panel.add (game3Button);
@@ -88,14 +88,19 @@ public class Main {
         aboutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                //custom title, no icon
+                // New Step: type your contribution like so between the ":" and the "\n"
+                // It will show up like a regular credit roll.
                 JOptionPane.showMessageDialog(frame,
                         "CMSC 495 Game Suite.\n" +
                                 "CMSC 495\n" +
                                 "Fall 2021\n" +
-                                "Mark Munoz: Professor\n" +
-                                "Credits:\n" +
-                                "(Oyewole, Sherry, Jeffrey, Janee, Wayne",
+                                "Mark Munoz: Professor\n\n" +
+                                "Credits:\n\n" +
+                                "(Oyewole: \n " +
+                                "Sherry: \n" +
+                                "Jeffrey: \n" +
+                                "Janee: \n" +
+                                "Wayne Mack: Main Menu design and Maze Game\n",
                         "CMSC 495 Game Suite",
                         JOptionPane.PLAIN_MESSAGE);
             }
