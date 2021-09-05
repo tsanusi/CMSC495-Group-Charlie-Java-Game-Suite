@@ -95,7 +95,7 @@ public class Main {
                                 "Fall 2021\n" +
                                 "Mark Munoz: Professor\n" +
                                 "Credits:\n" +
-                                "(INPUT CREDITS HERE:",
+                                "(Oyewole, Sherry, Jeffrey, Janee, Wayne",
                         "CMSC 495 Game Suite",
                         JOptionPane.PLAIN_MESSAGE);
             }
