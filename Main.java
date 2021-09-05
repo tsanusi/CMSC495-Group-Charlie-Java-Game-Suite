@@ -1,4 +1,6 @@
-// MAIN MENU PROGRAM
+/////////////////////////////////////////////////////////
+// CMSC 495 - VIDEO GAME SUITE - MAIN MENUm            //
+/////////////////////////////////////////////////////////
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -50,7 +52,7 @@ public class Main {
         panel.add (secondDialogueBox);
         frame.add (panel);
         frame.setVisible(true);
-        // Step 2: In the following lines starting with line 57, replace that line with the name of your game's
+        // Step 2: In the following lines starting with line 61, replace that line with the name of your game's
         //         main class followed by ".main(null);" The maze game is there as examples. Replace "Maze" with
         //         the main class of your game file.
         game1Button.addActionListener(new ActionListener() {
