@@ -27,7 +27,7 @@ public class Maze {
         levelName = LevelNames.LEVEL_TWO;
         Frame = new JFrame("Maze Game");
         Frame.setResizable(false);
-        Frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        //Frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         mazeLevelData = new TileMap(levelName);
         gameScreen = new GameScreen(mazeLevelData.mazeGrid);
         int xAt20Percent = (int)(((double)gameScreen.xTotalDimensions)* .2);
