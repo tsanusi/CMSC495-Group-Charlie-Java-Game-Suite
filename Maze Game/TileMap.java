@@ -1,5 +1,6 @@
 
-
+enum Directions {UP, DOWN, LEFT, RIGHT}
+enum MazeItems {FLOOR, WALL, EXIT, PLAYER_POSITION, ENEMY_POSITION}
 public class TileMap {
     String levelName;
     MazeItems [][] mazeGrid;
