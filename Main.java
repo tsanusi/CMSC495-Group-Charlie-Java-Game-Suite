@@ -98,7 +98,7 @@ public class Main {
                                 "Fall 2021\n" +
                                 "Mark Munoz: Professor\n\n" +
                                 "Credits:\n\n" +
-                                "(Oyewole: \n " +
+                                "(Oyewole: Creation of Doc outline and Snake Game\n " +
                                 "Sherry: \n" +
                                 "Jeffrey: \n" +
                                 "Janee: \n" +
