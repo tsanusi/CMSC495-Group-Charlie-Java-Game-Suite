@@ -47,7 +47,8 @@ public class GameScreen extends Canvas {
         switch (mazeItems[column][row]) {
             case FLOOR: {
                 g.setColor(Color.BLACK);
-                g.drawRect((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);g.fillRect((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
+                g.drawRect((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
+                g.fillRect((i * BLOCK_SIZE), (j * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
                 break;
             }
             case ENEMY_POSITION: {
