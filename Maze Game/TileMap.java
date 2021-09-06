@@ -43,6 +43,8 @@ public class TileMap {
             makeHorizontalPath(10,14,1);
             makeVerticalPath(14,1,5);
             makePlayer(1,1);
+            makeExit(17,8);
+            makeEnemy(16,8);
 
 
 
@@ -89,9 +91,12 @@ public class TileMap {
         for (int i = 0; i <= xRows + 1; i++) {
             for (int j = 0; j <= yRows+1; j++ ) {
                 mazeGrid[i][j] = MazeItems.WALL;
-                System.out.println ("Set: "+ i + " and " + j);
             }
         }
+    }
+
+    private void makeEnemy (int x, int y) {
+        mazeGrid[x][y] = MazeItems.ENEMY_POSITION;
     }
     private void makePlayer(int x, int y) {
         this.playerX = x;
@@ -102,7 +107,6 @@ public class TileMap {
         mazeGrid[x][y] = MazeItems.EXIT;
     }
     private void makeFloor(int x, int y) {
-        System.out.println (x + " and " + y);
         mazeGrid[x][y] = MazeItems.FLOOR;
     }
     private void makeVerticalPath (int columnPoint, int firstRowPoint, int secondRowPoint) {
@@ -116,8 +120,8 @@ public class TileMap {
             System.out.println(xColumn);
         }
     }
-    private Boolean canMoveto (int x, int y) {
-        return mazeGrid[x][y] != MazeItems.WALL;
+    protected Boolean isPresent (int x, int y, MazeItems item) {
+        return mazeGrid[x][y] == item;
     }
     private void repositionPlayer () {
         mazeGrid[playerX][playerY] = MazeItems.PLAYER_POSITION;
@@ -143,13 +147,18 @@ public class TileMap {
                 break;
             }
         }
-        if (canMoveto(newPositionX,newPositionY)) {
+        if (!isPresent(newPositionX,newPositionY, MazeItems.WALL)) {
             mazeGrid[playerX][playerY] = MazeItems.FLOOR;
+            if (isPresent(newPositionX,newPositionY,MazeItems.ENEMY_POSITION)) {
+                // Death Sequence
+            }
+            else if (isPresent(newPositionX,newPositionY,MazeItems.EXIT)) {
+                // Win Maze Sequence
+            }
             playerX = newPositionX;
             playerY = newPositionY;
             mazeGrid[playerX][playerY] = MazeItems.PLAYER_POSITION;
             GameScreen.copyMazeItems(mazeGrid,playerX,playerY);
-
 
         }
     }
