@@ -1,17 +1,29 @@
-/////////////////////////////////////////////////////////////
-// Maze Game                                               //
-// CMSC 495 FALL 2021 Section                              //
-// Professor: Mark Munoz                                   //
-// Programmers: Wayne Mack                                 //
-/////////////////////////////////////////////////////////////
+//////////////////////////////////////////////
+// Wayne Mack Jr.                           //
+// 6425 Union Court                         //
+// Glen Burnie, MD 21061                    //
+// (443) 627-1117                           //
+//------------------------------------------//
+// CMSC 495 - Fall 2021                     //
+// Professor Mark Munoz                     //
+//------------------------------------------//
+// Maze Game                                //
+// Written in Java:                         //
+//------------------------------------------//
+// Class: Maze.java                         //
+// This class is the main Class for the     //
+// Maze game                                //
+//////////////////////////////////////////////
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Scanner;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
-
-
+/**********************************************
+ * This is the main class for the Maze game.  *
+ * This holds all class variables.            *
+ **********************************************/
 public class Maze {
     JButton restartButton;
     JTextField timeDisplay;
@@ -20,7 +32,13 @@ public class Maze {
     static TileMap mazeLevelData;
     static LevelNames levelName;
     static Scanner scanner;
+    static EnemyMove em;
     static KeyListener kListener;
+    boolean threadStarted;
+    /*****************************
+     * Maze Class Constructor    *
+     * @param levelName          *
+     *****************************/
     Maze (LevelNames levelName) {
         this.levelName = levelName;
         Frame = new JFrame("Maze Game");
@@ -32,9 +50,9 @@ public class Maze {
         int yAt20Percent = (int)(((double)gameScreen.xTotalDimensions) * .2);
         Frame.setSize(gameScreen.xTotalDimensions  , gameScreen.yTotalDimensions + yAt20Percent);
         Frame.add(gameScreen);
+        threadStarted = false;
         Frame.setVisible(true);
-        EnemyMove em = new EnemyMove();
-        em.start();
+        em = new EnemyMove();
         kListener = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -64,6 +82,10 @@ public class Maze {
                     }
                 }
                 gameScreen.repaint();
+                if (!threadStarted) {
+                    em.start();
+                    threadStarted = true;
+                }
             }
             @Override
             public void keyReleased(KeyEvent e) {
@@ -76,7 +98,16 @@ public class Maze {
         Container contentPane = Frame.getContentPane();
         gameScreen.addKeyListener(kListener);
     }
+    public static void winMazeSequence () {
+        JFrame wMs = new JFrame();
+        em.setStopThread();
+        JOptionPane.showMessageDialog(wMs,"Good Job, You made it to the Exit!.");
+        Maze.main(null);
+    }
+    public static void deathSequence() {
+        JFrame f = new JFrame();
+        em.setStopThread();
+        JOptionPane.showMessageDialog(f,"Uh oh, You were caught, Try again!.");
+        Maze.main(null);
+    }
 }
-
-
-

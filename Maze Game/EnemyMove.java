@@ -1,10 +1,22 @@
+//////////////////////////////////////////////
+// Wayne Mack Jr.                           //
+// 6425 Union Court                         //
+// Glen Burnie, MD 21061                    //
+// (443) 627-1117                           //
+//------------------------------------------//
+// CMSC 495 - Fall 2021                     //
+// Professor Mark Munoz                     //
+//------------------------------------------//
+// Maze Game                                //
+// Written in Java:                         //
+//------------------------------------------//
+// Class: EnemyMove.java                    //
+// This class maintains the data and the    //
+// algorithms for the enemy's movements     //
+//////////////////////////////////////////////
 
 public class EnemyMove extends Thread {
     public boolean stopThread;
-
-    EnemyMove () {
-        //enemyList = Maze.mazeLevelData.enemyList;
-    }
 
     @Override
     public void run() {
@@ -19,18 +31,17 @@ public class EnemyMove extends Thread {
             }
         }
     }
-
+    public void setStopThread () {
+        stopThread = true;
+    }
 }
-
 class EnemyList {
     int rowNumber; int columnNumber;
     EnemyList next;
-
     EnemyList(int columnNumber, int rowNumber) {
         this.rowNumber = rowNumber;
         this.columnNumber = columnNumber;
     }
-
     void addToList(int columnNumber, int rowNumber) {
         if (next == null) {
             next = new EnemyList(columnNumber,rowNumber);
@@ -55,7 +66,6 @@ class EnemyList {
             return next.isPresent2(Column,Row);
         }
         return false;
-
     }
     public int absoluteValue (int i) {
         if (i < 0) {
@@ -100,6 +110,9 @@ class EnemyList {
         }
         System.out.println ("Screen repaint");
         Maze.gameScreen.repaint();
+        if (Maze.mazeLevelData.enemyGotYou()) {
+            Maze.deathSequence();
+        }
         return true;
     }
     public boolean moveLeftRight () {
@@ -121,7 +134,9 @@ class EnemyList {
             return false;
         }
         Maze.gameScreen.repaint();
+        if (Maze.mazeLevelData.enemyGotYou()) {
+            Maze.deathSequence();
+        }
         return true;
     }
-
 }

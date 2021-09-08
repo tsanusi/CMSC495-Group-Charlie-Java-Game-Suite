@@ -1,4 +1,20 @@
-
+//////////////////////////////////////////////
+// Wayne Mack Jr.                           //
+// 6425 Union Court                         //
+// Glen Burnie, MD 21061                    //
+// (443) 627-1117                           //
+//------------------------------------------//
+// CMSC 495 - Fall 2021                     //
+// Professor Mark Munoz                     //
+//------------------------------------------//
+// Maze Game                                //
+// Written in Java:                         //
+//------------------------------------------//
+// Class: TileMap.java                      //
+// This class holds a Tile Map and holds    //
+// the data for the level layouts of the    //
+// maze game.                               //
+//////////////////////////////////////////////
 enum Directions {UP, DOWN, LEFT, RIGHT}
 enum LevelNames {LEVEL_ONE, LEVEL_TWO, LEVEL_THREE, LEVEL_FOUR, LEVEL_FIVE, LEVEL_SIX, LEVEL_SEVEN,
                  LEVEL_EIGHT, LEVEL_NINE, LEVEL_TEN, LEVEL_ELEVEN, LEVEL_TWELVE}
@@ -48,6 +64,7 @@ public class TileMap {
             makePlayer(1,1);
             makeExit(17,8);
             makeEnemy(16,8);
+            makeEnemy(14,1);
 
 
 
@@ -159,17 +176,18 @@ public class TileMap {
         }
         if (!isPresent(newPositionX,newPositionY, MazeItems.WALL)) {
             mazeGrid[playerX][playerY] = MazeItems.FLOOR;
-            if (isPresent(newPositionX,newPositionY,MazeItems.ENEMY_POSITION)) {
-                // Death Sequence
+            if (enemyGotYou()) {
+                Maze.deathSequence();
             }
             else if (isPresent(newPositionX,newPositionY,MazeItems.EXIT)) {
-                // Win Maze Sequence
+                Maze.winMazeSequence();
             }
             playerX = newPositionX;
             playerY = newPositionY;
             mazeGrid[playerX][playerY] = MazeItems.PLAYER_POSITION;
-            //GameScreen.copyMazeItems(mazeGrid,playerX,playerY);
-
         }
+    }
+    public  boolean enemyGotYou () {
+        return enemyList.isPresent2(playerX,playerY);
     }
 }

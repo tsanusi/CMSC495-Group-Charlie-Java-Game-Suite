@@ -1,8 +1,25 @@
+//////////////////////////////////////////////
+// Wayne Mack Jr.                           //
+// 6425 Union Court                         //
+// Glen Burnie, MD 21061                    //
+// (443) 627-1117                           //
+//------------------------------------------//
+// CMSC 495 - Fall 2021                     //
+// Professor Mark Munoz                     //
+//------------------------------------------//
+// Maze Game                                //
+// Written in Java:                         //
+//------------------------------------------//
+// Class: GameScreen.java                   //
+// The class displays the game screen for   //
+// the maze game.                           //
+//////////////////////////////////////////////
+import javax.swing.*;
 import java.awt.*;
 
 public class GameScreen extends Canvas {
     final int BLOCK_SIZE = 50;
-    static int oldXposition,oldYposition,playerXPosition, playerYPosition;
+    static int playerXPosition, playerYPosition;
     int xTotalDimensions;
     int yTotalDimensions;
     //static MazeItems[][] mazeItems;
@@ -10,10 +27,8 @@ public class GameScreen extends Canvas {
     GameScreen ( MazeItems[][] mItems) {
         this.xTotalDimensions = BLOCK_SIZE * mItems.length;
         this.yTotalDimensions = BLOCK_SIZE * mItems[0].length;
-
         mazeIsDrawn = false;
     }
-
     public void paint(Graphics g) {
         g.setColor(Color.GRAY);
         g.drawRect(0, 0, xTotalDimensions, yTotalDimensions);
@@ -71,5 +86,7 @@ public class GameScreen extends Canvas {
         g.drawOval((playerXPosition * BLOCK_SIZE), (playerYPosition * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
         g.fillOval((playerXPosition * BLOCK_SIZE), (playerYPosition * BLOCK_SIZE), BLOCK_SIZE, BLOCK_SIZE);
     }
-
+}
+class TitleScreen extends JFrame {
+    // Coming soon . . .
 }
