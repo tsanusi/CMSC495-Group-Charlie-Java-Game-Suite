@@ -1,9 +1,4 @@
 //////////////////////////////////////////////
-// Wayne Mack Jr.                           //
-// 6425 Union Court                         //
-// Glen Burnie, MD 21061                    //
-// (443) 627-1117                           //
-//------------------------------------------//
 // CMSC 495 - Fall 2021                     //
 // Professor Mark Munoz                     //
 //------------------------------------------//
@@ -94,19 +89,26 @@ public class Maze {
         };
     }
     public static void main (String [] args) {
+        TitleScreen title = new TitleScreen();
+        /*
         Maze maze = new Maze(LevelNames.LEVEL_TWO);
         Container contentPane = Frame.getContentPane();
         gameScreen.addKeyListener(kListener);
+        */
     }
-    public static void winMazeSequence () {
+    public static void winMazeSequence (int winLocationX, int winLocationY) {
         JFrame wMs = new JFrame();
         em.setStopThread();
+        Maze.mazeLevelData.mazeGrid[winLocationX][winLocationY] = MazeItems.PLAYER_WIN;
+        Maze.gameScreen.repaint();
         JOptionPane.showMessageDialog(wMs,"Good Job, You made it to the Exit!.");
         Maze.main(null);
     }
-    public static void deathSequence() {
+    public static void deathSequence(int deathLocationX, int deathLocationY) {
         JFrame f = new JFrame();
         em.setStopThread();
+        Maze.mazeLevelData.mazeGrid[deathLocationX][deathLocationY] = MazeItems.PLAYER_DEAD;
+        Maze.gameScreen.repaint();
         JOptionPane.showMessageDialog(f,"Uh oh, You were caught, Try again!.");
         Maze.main(null);
     }

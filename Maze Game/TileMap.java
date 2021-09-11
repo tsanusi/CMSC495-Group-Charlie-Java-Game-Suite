@@ -1,9 +1,4 @@
 //////////////////////////////////////////////
-// Wayne Mack Jr.                           //
-// 6425 Union Court                         //
-// Glen Burnie, MD 21061                    //
-// (443) 627-1117                           //
-//------------------------------------------//
 // CMSC 495 - Fall 2021                     //
 // Professor Mark Munoz                     //
 //------------------------------------------//
@@ -18,7 +13,8 @@
 enum Directions {UP, DOWN, LEFT, RIGHT}
 enum LevelNames {LEVEL_ONE, LEVEL_TWO, LEVEL_THREE, LEVEL_FOUR, LEVEL_FIVE, LEVEL_SIX, LEVEL_SEVEN,
                  LEVEL_EIGHT, LEVEL_NINE, LEVEL_TEN, LEVEL_ELEVEN, LEVEL_TWELVE}
-enum MazeItems {FLOOR, WALL, EXIT, PLAYER_POSITION, ENEMY_POSITION}
+enum MazeItems {FLOOR, WALL, EXIT, PLAYER_POSITION, ENEMY_POSITION,PLAYER_POSITION_UP,PLAYER_POSITION_DOWN,PLAYER_POSITION_LEFT,
+                PLAYER_POSITION_RIGHT,ENEMY_POSITION_UP,ENEMY_POSITION_DOWN,ENEMY_POSITION_LEFT,ENEMY_POSITION_RIGHT, PLAYER_DEAD, PLAYER_WIN}
 public class TileMap {
     String levelName;
     MazeItems [][] mazeGrid;
@@ -147,7 +143,6 @@ public class TileMap {
         }
     }
     public Boolean isPresent (int x, int y, MazeItems item) {
-        System.out.println("x: "+ x + " y: " + y);
         return mazeGrid[x][y] == item;
     }
     private void repositionPlayer () {
@@ -176,15 +171,33 @@ public class TileMap {
         }
         if (!isPresent(newPositionX,newPositionY, MazeItems.WALL)) {
             mazeGrid[playerX][playerY] = MazeItems.FLOOR;
-            if (enemyGotYou()) {
-                Maze.deathSequence();
-            }
-            else if (isPresent(newPositionX,newPositionY,MazeItems.EXIT)) {
-                Maze.winMazeSequence();
-            }
+
             playerX = newPositionX;
             playerY = newPositionY;
-            mazeGrid[playerX][playerY] = MazeItems.PLAYER_POSITION;
+            MazeItems viewThisWay;
+            switch (direction) {
+                case LEFT: {
+                    viewThisWay = MazeItems.PLAYER_POSITION_LEFT;
+                    break;
+                }
+                case RIGHT: {
+                    viewThisWay = MazeItems.PLAYER_POSITION_RIGHT;
+                    break;
+                }
+                default: {
+                    viewThisWay = MazeItems.PLAYER_POSITION_UP;
+                }
+            }
+
+
+            if (enemyGotYou()) {
+                Maze.deathSequence(newPositionX,newPositionY);
+            }
+            else if (isPresent(newPositionX,newPositionY,MazeItems.EXIT)) {
+                Maze.winMazeSequence(newPositionX,newPositionY);
+            }
+            mazeGrid[playerX][playerY] = viewThisWay;
+
         }
     }
     public  boolean enemyGotYou () {
