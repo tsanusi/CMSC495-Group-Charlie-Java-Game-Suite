@@ -11,8 +11,11 @@
 //////////////////////////////////////////////
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.beans.PropertyChangeListener;
 import java.util.Scanner;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 /**********************************************
@@ -90,11 +93,86 @@ public class Maze {
     }
     public static void main (String [] args) {
         TitleScreen title = new TitleScreen();
-        /*
-        Maze maze = new Maze(LevelNames.LEVEL_TWO);
+        title.startButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                levelSelector(1);
+            }
+        });
+        title.instructionsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        title.highScoreButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+    }
+    public static void displayInstructions() {
+
+    }
+    public static void levelSelector (int  levelNumbers) {
+        Maze maze;
+        switch (levelNumbers) {
+            case 1: {
+                maze = new Maze(LevelNames.LEVEL_ONE);
+                break;
+            }
+            case 2: {
+                maze = new Maze(LevelNames.LEVEL_TWO);
+                break;
+            }
+            case 3: {
+                maze = new Maze(LevelNames.LEVEL_THREE);
+                break;
+            }
+            case 4: {
+                maze = new Maze(LevelNames.LEVEL_FOUR);
+                break;
+            }
+            case 5: {
+                maze = new Maze(LevelNames.LEVEL_FIVE);
+                break;
+            }
+            case 6: {
+                maze = new Maze(LevelNames.LEVEL_SIX);
+                break;
+            }
+            case 7: {
+
+                maze = new Maze(LevelNames.LEVEL_SEVEN);
+                break;
+            }
+            case 8: {
+                maze = new Maze(LevelNames.LEVEL_EIGHT);
+                break;
+            }
+            case 9: {
+                maze = new Maze(LevelNames.LEVEL_NINE);
+                break;
+            }
+            case 10: {
+                maze = new Maze(LevelNames.LEVEL_TEN);
+                break;
+            }
+            case 11: {
+                maze = new Maze(LevelNames.LEVEL_ELEVEN);
+                break;
+            }
+            case 12: {
+                maze = new Maze(LevelNames.LEVEL_TWELVE);
+                break;
+            }
+
+        }
         Container contentPane = Frame.getContentPane();
         gameScreen.addKeyListener(kListener);
-        */
+
     }
     public static void winMazeSequence (int winLocationX, int winLocationY) {
         JFrame wMs = new JFrame();
@@ -102,7 +180,7 @@ public class Maze {
         Maze.mazeLevelData.mazeGrid[winLocationX][winLocationY] = MazeItems.PLAYER_WIN;
         Maze.gameScreen.repaint();
         JOptionPane.showMessageDialog(wMs,"Good Job, You made it to the Exit!.");
-        Maze.main(null);
+        levelSelector(2);
     }
     public static void deathSequence(int deathLocationX, int deathLocationY) {
         JFrame f = new JFrame();

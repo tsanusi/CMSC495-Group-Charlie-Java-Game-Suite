@@ -25,17 +25,27 @@ public class TileMap {
     switch (levelName) {
         case LEVEL_ONE: {
             setDimensions(10,10);
-            makeVerticalPath(1,1,7);
-            makeHorizontalPath(1,3,1);
-            makeVerticalPath(3,1,3);
-            makeHorizontalPath(1,8,5);
-            makeHorizontalPath(3,5,3);
-            makeVerticalPath(4,4,6);
-            makeHorizontalPath(1,7,7);
-            makeVerticalPath(1,1,10);
-            makeHorizontalPath(1,10,1);
-            makeExit(3,5);
-            makePlayer(2,1);
+            makeHorizontalPath(1,4,1);
+            makeVerticalPath(1,1,5);
+            makeHorizontalPath(1,6,5);
+            makeVerticalPath(4,1,7);
+            makeVerticalPath(6,1,7);
+            makeHorizontalPath(6,10,1);
+            makeVerticalPath(10,1,3);
+            makeHorizontalPath(8,10,3);
+            makeVerticalPath(8,3,5);
+            makeHorizontalPath(8,10,5);
+            makeVerticalPath(10,5,10);
+            makeHorizontalPath(1,10,7);
+            makeVerticalPath(1,7,10);
+            makeVerticalPath(3,7,10);
+            makeHorizontalPath(3,4,10);
+            makeHorizontalPath(3,8,9);
+            makeVerticalPath(8,7,10);
+            makePlayer(1,1);
+            makeExit(10,10);
+            makeEnemy(1,10);
+            makeEnemy(10,1);
             break;
         }
         case LEVEL_TWO: {
@@ -61,11 +71,6 @@ public class TileMap {
             makeExit(17,8);
             makeEnemy(16,8);
             makeEnemy(14,1);
-
-
-
-
-
         }
         case LEVEL_THREE: {
 
