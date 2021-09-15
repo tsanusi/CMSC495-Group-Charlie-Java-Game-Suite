@@ -1,4 +1,4 @@
-package sudoku.view;
+package view;
 
 import java.awt.Color;
 import java.awt.Dimension;

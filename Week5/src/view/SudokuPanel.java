@@ -1,4 +1,4 @@
-package sudoku.view;
+package view;
 
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -6,9 +6,9 @@ import java.util.Observable;
 import java.util.Observer;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
-import sudoku.controller.SudokuController;
-import sudoku.model.Game;
-import sudoku.model.UpdateAction;
+import controller.SudokuController;
+import model.Game;
+import model.UpdateAction;
 
 public class SudokuPanel extends JPanel implements Observer {
     
