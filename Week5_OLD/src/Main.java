@@ -2,15 +2,12 @@
 // CMSC 495 - VIDEO GAME SUITE - MAIN MENUm            //
 /////////////////////////////////////////////////////////
 
-import Sudoku.controller.Sudoku;
-import Word_Search.WordSearchProgram;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 // NOTE: FOLLOW STEP ONE,TWO, AND THREE AND LINES 8, 53, and 86.
 public class Main {
-    // Step 1 : Place Game names here in the following string designations. The Maze.Maze Game is there as an example.
+    // Step 1 : Place Game names here in the following string designations. The Maze Game is there as an example.
     private static final String gameOne = "Maze",
                                 gameTwo = "Snake",
                                 gameThree = "Sudoku",
@@ -56,18 +53,18 @@ public class Main {
         frame.add (panel);
         frame.setVisible(true);
         // Step 2: In the following lines starting with line 61, replace that line with the name of your game's
-        //         main class followed by ".main(null);" The maze game is there as examples. Replace "Maze.Maze" with
+        //         main class followed by ".main(null);" The maze game is there as examples. Replace "Maze" with
         //         the main class of your game file.
         game1Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                Maze.Maze.main(null);
+                Maze.main(null);
             }
         });
         game2Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                Snake.Snake.main(null);
+                Snake.main(null);
             }
         });
         game3Button.addActionListener(new ActionListener() {
@@ -79,13 +76,13 @@ public class Main {
         game4Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-            	Word_Search.WordSearchProgram.main(null);
+            	WordSearchProgram.main(null);
             }
         });
         game5Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                /*Maze.main(null)*/;
+                Maze.main(null);
             }
         });
         // Step 3: Complete the credit with your contributions here followed by "\n" for each new line.
@@ -101,11 +98,11 @@ public class Main {
                                 "Fall 2021\n" +
                                 "Mark Munoz: Professor\n\n" +
                                 "Credits:\n\n" +
-                                "(Oyewole: Creation of Doc outline and Snake.Snake Game\n " +
+                                "(Oyewole: Creation of Doc outline and Snake Game\n " +
                                 "Sherry: \n" +
                                 "Jeffrey: \n" +
                                 "Janee: \n" +
-                                "Wayne Mack: Main Menu design and Maze.Maze Game\n",
+                                "Wayne Mack: Main Menu design and Maze Game\n",
                         "CMSC 495 Game Suite",
                         JOptionPane.PLAIN_MESSAGE);
             }
