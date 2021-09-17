@@ -85,7 +85,7 @@ public class Main {
         game5Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                /*Maze.main(null)*/;
+                /*INSERT SLIDER PUZZLE METHOD CALL HERE*/;
             }
         });
         // Step 3: Complete the credit with your contributions here followed by "\n" for each new line.
