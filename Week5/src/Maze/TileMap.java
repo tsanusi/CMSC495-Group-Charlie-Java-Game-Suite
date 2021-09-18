@@ -78,6 +78,26 @@ public class TileMap {
 
         }
         case LEVEL_FOUR: {
+            setDimensions(13,15);
+            makeVerticalPath(1,1,2);
+            makeHorizontalPath(1,13,2);
+            makeVerticalPath(11,2,4);
+            makeHorizontalPath(4,1,3);
+            makeHorizontalPath(4,5,11);
+            makeVerticalPath(13,2,7);
+            makeVerticalPath(1,4,14);
+            makeHorizontalPath(1,3,4);
+            makeHorizontalPath(1,3,6);
+            makeHorizontalPath(1,5,8);
+            makeVerticalPath(5,6,10);
+            makeHorizontalPath(3,7,10);
+            makeHorizontalPath(6,5,9);
+            makeVerticalPath(7,6,8);
+            makeVerticalPath(9,6,10);
+            makeHorizontalPath(11,13,6);
+            makeHorizontalPath(11,13,8);
+
+
 
         }
         case LEVEL_FIVE: {
@@ -139,9 +159,9 @@ public class TileMap {
     private void makeFloor(int x, int y) {
         mazeGrid[x][y] = MazeItems.FLOOR;
     }
-    private void makeVerticalPath (int columnPoint, int firstRowPoint, int secondRowPoint) {
-        for (int yRow = firstRowPoint; yRow <= secondRowPoint; yRow++ ) {
-            makeFloor(columnPoint,yRow);
+    private void makeVerticalPath (int x, int y1, int y2) {
+        for (int yRow = y1; yRow <= y2; yRow++ ) {
+            makeFloor(x,yRow);
         }
     }
     private void makeHorizontalPath (int x1, int x2,int y) {
