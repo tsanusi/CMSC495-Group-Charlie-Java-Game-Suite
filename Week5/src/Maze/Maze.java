@@ -1,13 +1,14 @@
-package Maze;//////////////////////////////////////////////
+package Maze;
+//////////////////////////////////////////////
 // CMSC 495 - Fall 2021                     //
 // Professor Mark Munoz                     //
 //------------------------------------------//
-// Maze.Maze Game                                //
+// Maze Game                                //
 // Written in Java:                         //
 //------------------------------------------//
-// Class: Maze.Maze.java                         //
+// Class: Maze.java                         //
 // This class is the main Class for the     //
-// Maze.Maze game                                //
+// Maze game                                //
 //////////////////////////////////////////////
 import javax.swing.*;
 import java.awt.*;
@@ -19,7 +20,7 @@ import java.beans.PropertyChangeListener;
 import java.util.Scanner;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 /**********************************************
- * This is the main class for the Maze.Maze game.  *
+ * This is the main class for the Maze game.  *
  * This holds all class variables.            *
  **********************************************/
 public class Maze {
@@ -34,7 +35,7 @@ public class Maze {
     static KeyListener kListener;
     boolean threadStarted;
     /*****************************
-     * Maze.Maze Class Constructor    *
+     * Maze Class Constructor    *
      * @param levelName          *
      *****************************/
     Maze (LevelNames levelName) {
@@ -118,6 +119,10 @@ public class Maze {
     }
 
     public static void gameLevelSequence() {
+
+
+    }
+    public static void gameLevelSequence (int levelNumber) {
 
     }
     public static void levelSelector (int  levelNumbers) {
