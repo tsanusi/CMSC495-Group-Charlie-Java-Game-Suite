@@ -1,9 +1,4 @@
 //////////////////////////////////////////////
-// Wayne Mack Jr.                           //
-// 6425 Union Court                         //
-// Glen Burnie, MD 21061                    //
-// (443) 627-1117                           //
-//------------------------------------------//
 // CMSC 495 - Fall 2021                     //
 // Professor Mark Munoz                     //
 //------------------------------------------//
@@ -37,6 +32,7 @@ public class EnemyMove extends Thread {
 }
 class EnemyList {
     int rowNumber; int columnNumber;
+    Directions faceDirection;
     EnemyList next;
     EnemyList(int columnNumber, int rowNumber) {
         this.rowNumber = rowNumber;
@@ -47,7 +43,6 @@ class EnemyList {
             next = new EnemyList(columnNumber,rowNumber);
         }
         else {
-            System.out.println ("Adding new");
             next.addToList(columnNumber,rowNumber);
         }
     }
@@ -62,7 +57,6 @@ class EnemyList {
             return true;
         }
         if (next != null) {
-            System.out.println ("Line 65 Column :" + columnNumber + "Row: " + Row);
             return next.isPresent2(Column,Row);
         }
         return false;
@@ -90,52 +84,55 @@ class EnemyList {
             next.enemyMove();
         }
     }
-    public boolean moveUpDown () {
+    public boolean moveLeftRight () {
         if (Maze.mazeLevelData.playerX < columnNumber
                 && !isPresent2(columnNumber -1,rowNumber)
                 && !Maze.mazeLevelData.isPresent(columnNumber - 1,rowNumber,MazeItems.WALL)) {
             Maze.mazeLevelData.mazeGrid[columnNumber][rowNumber] = MazeItems.FLOOR;
             columnNumber--;
-            Maze.mazeLevelData.mazeGrid[columnNumber][rowNumber] = MazeItems.ENEMY_POSITION;
+            faceDirection = Directions.UP;
+            Maze.mazeLevelData.mazeGrid[columnNumber][rowNumber] = MazeItems.ENEMY_POSITION_LEFT;
         }
         else if (Maze.mazeLevelData.playerX > columnNumber
                 && !isPresent2(columnNumber +1,rowNumber)
                 && !Maze.mazeLevelData.isPresent(columnNumber + 1 ,rowNumber,MazeItems.WALL)) {
             Maze.mazeLevelData.mazeGrid[columnNumber][rowNumber] = MazeItems.FLOOR;
             columnNumber++;
-            Maze.mazeLevelData.mazeGrid[columnNumber][rowNumber] = MazeItems.ENEMY_POSITION;
+            faceDirection = Directions.DOWN;
+            Maze.mazeLevelData.mazeGrid[columnNumber][rowNumber] = MazeItems.ENEMY_POSITION_RIGHT;
         }
         else {
             return false;
         }
-        System.out.println ("Screen repaint");
         Maze.gameScreen.repaint();
         if (Maze.mazeLevelData.enemyGotYou()) {
-            Maze.deathSequence();
+            Maze.deathSequence(columnNumber,rowNumber);
         }
         return true;
     }
-    public boolean moveLeftRight () {
+    public boolean moveUpDown () {
         if (Maze.mazeLevelData.playerY < rowNumber
                 && !isPresent2(columnNumber ,rowNumber - 1)
                 && !Maze.mazeLevelData.isPresent(columnNumber ,rowNumber - 1,MazeItems.WALL)) {
             Maze.mazeLevelData.mazeGrid[columnNumber][rowNumber] = MazeItems.FLOOR;
             rowNumber--;
-            Maze.mazeLevelData.mazeGrid[columnNumber][rowNumber ] = MazeItems.ENEMY_POSITION;
+            faceDirection = Directions.UP;
+            Maze.mazeLevelData.mazeGrid[columnNumber][rowNumber ] = MazeItems.ENEMY_POSITION_UP;
         }
         else if (Maze.mazeLevelData.playerY > rowNumber
                 && !isPresent2(columnNumber,rowNumber + 1)
                 && !Maze.mazeLevelData.isPresent(columnNumber ,rowNumber + 1,MazeItems.WALL)) {
             Maze.mazeLevelData.mazeGrid[columnNumber][rowNumber] = MazeItems.FLOOR;
             rowNumber++;
-            Maze.mazeLevelData.mazeGrid[columnNumber][rowNumber ] = MazeItems.ENEMY_POSITION;
+            faceDirection = Directions.DOWN;
+            Maze.mazeLevelData.mazeGrid[columnNumber][rowNumber ] = MazeItems.ENEMY_POSITION_DOWN;
         }
         else {
             return false;
         }
         Maze.gameScreen.repaint();
         if (Maze.mazeLevelData.enemyGotYou()) {
-            Maze.deathSequence();
+            Maze.deathSequence(columnNumber,rowNumber);
         }
         return true;
     }
