@@ -82,49 +82,49 @@ public class SliderPuzzle extends JFrame implements ActionListener {
         christmasImageDivider(new File("src/Slider_Puzzle/resources/Christmas.jpg"));
         newYearsImageDivider(new File("src/Slider_Puzzle/resources/NewYears.jpg"));
 
-        halloweenIcon0 = new ImageIcon("Halloween0.jpg");
-        halloweenIcon1 = new ImageIcon("Halloween1.jpg");
-        halloweenIcon2 = new ImageIcon("Halloween2.jpg");
-        halloweenIcon3 = new ImageIcon("Halloween3.jpg");
-        halloweenIcon4 = new ImageIcon("Halloween4.jpg");
-        halloweenIcon5 = new ImageIcon("Halloween5.jpg");
-        halloweenIcon6 = new ImageIcon("Halloween6.jpg");
-        halloweenIcon7 = new ImageIcon("Halloween7.jpg");
-        halloweenIcon8 = new ImageIcon("Halloween8.jpg");
-        halloweenIcon9 = new ImageIcon("Halloween9.jpg");
-        halloweenIcon10 = new ImageIcon("Halloween10.jpg");
-        halloweenIcon11 = new ImageIcon("Halloween11.jpg");
-        finalPictureIcon0 = new ImageIcon("Villains.jpg");
-        finalPictureIcon1 = new ImageIcon("Christmas.jpg");
-        finalPictureIcon2 = new ImageIcon("NewYears.jpg");
+        halloweenIcon0 = new ImageIcon("src/Slider_Puzzle/resources/Halloween0.jpg");
+        halloweenIcon1 = new ImageIcon("src/Slider_Puzzle/resources/Halloween1.jpg");
+        halloweenIcon2 = new ImageIcon("src/Slider_Puzzle/resources/Halloween2.jpg");
+        halloweenIcon3 = new ImageIcon("src/Slider_Puzzle/resources/Halloween3.jpg");
+        halloweenIcon4 = new ImageIcon("src/Slider_Puzzle/resources/Halloween4.jpg");
+        halloweenIcon5 = new ImageIcon("src/Slider_Puzzle/resources/Halloween5.jpg");
+        halloweenIcon6 = new ImageIcon("src/Slider_Puzzle/resources/Halloween6.jpg");
+        halloweenIcon7 = new ImageIcon("src/Slider_Puzzle/resources/Halloween7.jpg");
+        halloweenIcon8 = new ImageIcon("src/Slider_Puzzle/resources/Halloween8.jpg");
+        halloweenIcon9 = new ImageIcon("src/Slider_Puzzle/resources/Halloween9.jpg");
+        halloweenIcon10 = new ImageIcon("src/Slider_Puzzle/resources/Halloween10.jpg");
+        halloweenIcon11 = new ImageIcon("src/Slider_Puzzle/resources/Halloween11.jpg");
+        finalPictureIcon0 = new ImageIcon("src/Slider_Puzzle/resources/Villains.jpg");
+        finalPictureIcon1 = new ImageIcon("src/Slider_Puzzle/resources/Christmas.jpg");
+        finalPictureIcon2 = new ImageIcon("src/Slider_Puzzle/resources/NewYears.jpg");
 
 
-        christmasIcon0 = new ImageIcon("Christmas0.jpg");
-        christmasIcon1 = new ImageIcon("Christmas1.jpg");
-        christmasIcon2 = new ImageIcon("Christmas2.jpg");
-        christmasIcon3 = new ImageIcon("Christmas3.jpg");
-        christmasIcon4 = new ImageIcon("Christmas4.jpg");
-        christmasIcon5 = new ImageIcon("Christmas5.jpg");
-        christmasIcon6 = new ImageIcon("Christmas6.jpg");
-        christmasIcon7 = new ImageIcon("Christmas7.jpg");
-        christmasIcon8 = new ImageIcon("Christmas8.jpg");
-        christmasIcon9 = new ImageIcon("Christmas9.jpg");
-        christmasIcon10 = new ImageIcon("Christmas10.jpg");
-        christmasIcon11 = new ImageIcon("Christmas11.jpg");
+        christmasIcon0 = new ImageIcon("src/Slider_Puzzle/resources/Christmas0.jpg");
+        christmasIcon1 = new ImageIcon("src/Slider_Puzzle/resources/Christmas1.jpg");
+        christmasIcon2 = new ImageIcon("src/Slider_Puzzle/resources/Christmas2.jpg");
+        christmasIcon3 = new ImageIcon("src/Slider_Puzzle/resources/Christmas3.jpg");
+        christmasIcon4 = new ImageIcon("src/Slider_Puzzle/resources/Christmas4.jpg");
+        christmasIcon5 = new ImageIcon("src/Slider_Puzzle/resources/Christmas5.jpg");
+        christmasIcon6 = new ImageIcon("src/Slider_Puzzle/resources/Christmas6.jpg");
+        christmasIcon7 = new ImageIcon("src/Slider_Puzzle/resources/Christmas7.jpg");
+        christmasIcon8 = new ImageIcon("src/Slider_Puzzle/resources/Christmas8.jpg");
+        christmasIcon9 = new ImageIcon("src/Slider_Puzzle/resources/Christmas9.jpg");
+        christmasIcon10 = new ImageIcon("src/Slider_Puzzle/resources/Christmas10.jpg");
+        christmasIcon11 = new ImageIcon("src/Slider_Puzzle/resources/Christmas11.jpg");
 
 
-        newYears0 = new ImageIcon("NewYears0.jpg");
-        newYears1 = new ImageIcon("NewYears1.jpg");
-        newYears2 = new ImageIcon("NewYears2.jpg");
-        newYears3 = new ImageIcon("NewYears3.jpg");
-        newYears4 = new ImageIcon("NewYears4.jpg");
-        newYears5 = new ImageIcon("NewYears5.jpg");
-        newYears6 = new ImageIcon("NewYears6.jpg");
-        newYears7 = new ImageIcon("NewYears7.jpg");
-        newYears8 = new ImageIcon("NewYears8.jpg");
-        newYears9 = new ImageIcon("NewYears9.jpg");
-        newYears10 = new ImageIcon("NewYears10.jpg");
-        newYears11 = new ImageIcon("NewYears11.jpg");
+        newYears0 = new ImageIcon("src/Slider_Puzzle/resources/NewYears0.jpg");
+        newYears1 = new ImageIcon("src/Slider_Puzzle/resources/NewYears1.jpg");
+        newYears2 = new ImageIcon("src/Slider_Puzzle/resources/NewYears2.jpg");
+        newYears3 = new ImageIcon("src/Slider_Puzzle/resources/NewYears3.jpg");
+        newYears4 = new ImageIcon("src/Slider_Puzzle/resources/NewYears4.jpg");
+        newYears5 = new ImageIcon("src/Slider_Puzzle/resources/NewYears5.jpg");
+        newYears6 = new ImageIcon("src/Slider_Puzzle/resources/NewYears6.jpg");
+        newYears7 = new ImageIcon("src/Slider_Puzzle/resources/NewYears7.jpg");
+        newYears8 = new ImageIcon("src/Slider_Puzzle/resources/NewYears8.jpg");
+        newYears9 = new ImageIcon("src/Slider_Puzzle/resources/NewYears9.jpg");
+        newYears10 = new ImageIcon("src/Slider_Puzzle/resources/NewYears10.jpg");
+        newYears11 = new ImageIcon("src/Slider_Puzzle/resources/NewYears11.jpg");
 
 
         /**
