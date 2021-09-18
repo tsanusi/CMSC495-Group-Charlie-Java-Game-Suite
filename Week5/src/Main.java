@@ -11,6 +11,7 @@
 //                                                                                                                    //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+import Slider_Puzzle.SliderPuzzle;
 import Sudoku.controller.Sudoku;
 import Word_Search.WordSearchProgram;
 

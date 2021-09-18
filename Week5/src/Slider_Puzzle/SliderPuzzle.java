@@ -1,3 +1,5 @@
+package Slider_Puzzle;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -76,9 +78,9 @@ public class SliderPuzzle extends JFrame implements ActionListener {
 
         super("Slider Puzzle");
 
-        halloweenImageDivider(new File("resources/villains.jpg"));
-        christmasImageDivider(new File("resources/Christmas.jpg"));
-        newYearsImageDivider(new File("resources/NewYears.jpg"));
+        halloweenImageDivider(new File("src/Slider_Puzzle/resources/villains.jpg"));
+        christmasImageDivider(new File("src/Slider_Puzzle/resources/Christmas.jpg"));
+        newYearsImageDivider(new File("src/Slider_Puzzle/resources/NewYears.jpg"));
 
         halloweenIcon0 = new ImageIcon("Halloween0.jpg");
         halloweenIcon1 = new ImageIcon("Halloween1.jpg");
