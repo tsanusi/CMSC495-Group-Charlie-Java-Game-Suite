@@ -98,7 +98,7 @@ public class Maze {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                levelSelector(1);
+                gameLevelSequence();
             }
         });
         title.instructionsButton.addActionListener(new ActionListener() {
@@ -119,7 +119,12 @@ public class Maze {
     }
 
     public static void gameLevelSequence() {
-
+        /***************************************************
+         * NOTE: TEMPORARILY MODIFIED FOR THE SAMPLE PHASE *
+         *       OF THIS PROJECT. IT WILL ONLY PLAY ONE    *
+         *       LEVEL.                                    *
+         ***************************************************/
+        levelSelector(2);
 
     }
     public static void gameLevelSequence (int levelNumber) {

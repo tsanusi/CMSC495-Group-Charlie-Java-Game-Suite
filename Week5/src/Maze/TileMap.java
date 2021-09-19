@@ -73,6 +73,7 @@ public class TileMap {
             makeExit(17,8);
             makeEnemy(16,8);
             makeEnemy(14,1);
+            break;
         }
         case LEVEL_THREE: {
 
@@ -96,6 +97,7 @@ public class TileMap {
             makeVerticalPath(9,6,10);
             makeHorizontalPath(11,13,6);
             makeHorizontalPath(11,13,8);
+            break;
 
 
 
