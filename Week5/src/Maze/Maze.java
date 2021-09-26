@@ -157,6 +157,7 @@ public class Maze {
         Maze.mazeLevelData.mazeGrid[winLocationX][winLocationY] = MazeItems.PLAYER_WIN;
         Maze.gameScreen.repaint();
         JOptionPane.showMessageDialog(wMs,"Good Job, You made it to the Exit!.");
+        
         gameLevelSequence(true);
 
     }
