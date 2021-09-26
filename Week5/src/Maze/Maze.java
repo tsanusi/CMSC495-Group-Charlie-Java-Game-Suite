@@ -34,6 +34,7 @@ public class Maze {
     static EnemyMove em;
     static KeyListener kListener;
     boolean threadStarted;
+    static int levelNumber;
     /*****************************
      * Maze Class Constructor    *
      * @param levelName          *
@@ -93,12 +94,13 @@ public class Maze {
         };
     }
     public static void main (String [] args) {
+        levelNumber = 0;
         TitleScreen title = new TitleScreen();
         title.startButton.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                gameLevelSequence();
+                gameLevelSequence(false);
             }
         });
         title.instructionsButton.addActionListener(new ActionListener() {
@@ -118,17 +120,16 @@ public class Maze {
 
     }
 
-    public static void gameLevelSequence() {
-        /***************************************************
-         * NOTE: TEMPORARILY MODIFIED FOR THE SAMPLE PHASE *
-         *       OF THIS PROJECT. IT WILL ONLY PLAY ONE    *
-         *       LEVEL.                                    *
-         ***************************************************/
-        levelSelector(2);
-
-    }
-    public static void gameLevelSequence (int levelNumber) {
-
+    public static void gameLevelSequence(boolean winLevel) {
+        if (winLevel) {
+            levelNumber++;
+        }
+        if (levelNumber > 12) {
+            //win Game Sequence
+        }
+        else {
+            levelSelector(levelNumber);
+        }
     }
     public static void levelSelector (int  levelNumbers) {
         Maze maze;
@@ -156,7 +157,8 @@ public class Maze {
         Maze.mazeLevelData.mazeGrid[winLocationX][winLocationY] = MazeItems.PLAYER_WIN;
         Maze.gameScreen.repaint();
         JOptionPane.showMessageDialog(wMs,"Good Job, You made it to the Exit!.");
-        levelSelector(2);
+        gameLevelSequence(true);
+
     }
     public static void deathSequence(int deathLocationX, int deathLocationY) {
         JFrame f = new JFrame();
@@ -164,6 +166,10 @@ public class Maze {
         Maze.mazeLevelData.mazeGrid[deathLocationX][deathLocationY] = MazeItems.PLAYER_DEAD;
         Maze.gameScreen.repaint();
         JOptionPane.showMessageDialog(f,"Uh oh, You were caught, Try again!.");
-        Maze.main(null);
+        gameLevelSequence(false);
+    }
+
+    private static void gameWinSequence () {
+
     }
 }
