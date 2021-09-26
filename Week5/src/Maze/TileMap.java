@@ -172,6 +172,21 @@ public class TileMap {
             break;
         }
         case LEVEL_SEVEN: {
+            setDimensions(13,11);
+            makeHorizontalPath(1,3,2);
+            makeVerticalPath(3,2,9);
+            makeHorizontalPath(3,9,9);
+            makeVerticalPath(9,7,9);
+            makeHorizontalPath(5,9,7);
+            makeVerticalPath(5,5,7);
+            makeHorizontalPath(5,10,5);
+            makeVerticalPath(10,3,5);
+            makeHorizontalPath(5,10,3);
+            makeVerticalPath(5,1,3);
+            makeHorizontalPath(5,13,1);
+            makeEnemy(2,1);
+            makePlayer(2,3);
+            break;
         }
         case LEVEL_EIGHT: {
 
