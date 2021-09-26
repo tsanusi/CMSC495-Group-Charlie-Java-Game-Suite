@@ -1,11 +1,12 @@
-package Maze;//////////////////////////////////////////////
+package Maze;
+//////////////////////////////////////////////
 // CMSC 495 - Fall 2021                     //
 // Professor Mark Munoz                     //
 //------------------------------------------//
-// Maze.Maze Game                                //
+// Maze.Maze Game                           //
 // Written in Java:                         //
 //------------------------------------------//
-// Class: Maze.GameScreen.java                   //
+// Class: Maze.GameScreen.java              //
 // The class displays the game screen for   //
 // the maze game.                           //
 //////////////////////////////////////////////
