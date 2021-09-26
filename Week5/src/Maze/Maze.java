@@ -94,7 +94,7 @@ public class Maze {
         };
     }
     public static void main (String [] args) {
-        levelNumber = 0;
+        levelNumber = 1;
         TitleScreen title = new TitleScreen();
         title.startButton.addActionListener(new ActionListener() {
 
@@ -132,7 +132,7 @@ public class Maze {
         }
     }
     public static void levelSelector (int  levelNumbers) {
-        Maze maze;
+        Maze maze = null;
         switch (levelNumbers) {
             case 1: { maze = new Maze(LevelNames.LEVEL_ONE); break; }
             case 2: { maze = new Maze(LevelNames.LEVEL_TWO); break; }
@@ -147,7 +147,7 @@ public class Maze {
             case 11: { maze = new Maze(LevelNames.LEVEL_ELEVEN); break; }
             case 12: { maze = new Maze(LevelNames.LEVEL_TWELVE); break; }
         }
-        Container contentPane = Frame.getContentPane();
+        Container contentPane = maze.Frame.getContentPane();
         gameScreen.addKeyListener(kListener);
 
     }
