@@ -76,34 +76,47 @@ public class TileMap {
             break;
         }
         case LEVEL_THREE: {
-
+            setDimensions(10,10);
+            makeHorizontalPath(1,5,1);
+            makeVerticalPath(2,1,5);
+            makeHorizontalPath(5,2,9);
+            makeVerticalPath(5,1,5);
+            makeHorizontalPath(5,8,5);
+            makeVerticalPath(8,1,3);
+            makeHorizontalPath(8,10,1);
+            makeVerticalPath(9,5,7);
+            makeVerticalPath(3,5,10);
+            makeVerticalPath(6,5,10);
+            makeHorizontalPath(1,3,10);
+            makeHorizontalPath(6,9,10);
+            makeEnemy(10,1);
+            makeEnemy(1,10);
+            makeEnemy(10,9);
+            makeExit(7,9);
+            makePlayer(1,1);
+            break;
         }
         case LEVEL_FOUR: {
-            setDimensions(13,15);
-            makeVerticalPath(1,1,2);
-            makeHorizontalPath(1,13,2);
-            makeVerticalPath(11,2,4);
-            makeHorizontalPath(4,1,3);
-            makeHorizontalPath(4,5,11);
-            makeVerticalPath(13,2,7);
-            makeVerticalPath(1,4,14);
-            makeHorizontalPath(1,3,4);
-            makeHorizontalPath(1,3,6);
-            makeHorizontalPath(1,5,8);
-            makeVerticalPath(5,6,10);
-            makeHorizontalPath(3,7,10);
-            makeHorizontalPath(6,5,9);
-            makeVerticalPath(7,6,8);
-            makeVerticalPath(9,6,10);
-            makeHorizontalPath(11,13,6);
-            makeHorizontalPath(11,13,8);
+            setDimensions(11,9);
+            makeHorizontalPath(1,5,1);
+            makeHorizontalPath(8,11,1);
+            makeVerticalPath(5,1,3);
+            makeVerticalPath(6,3,4);
+            makeVerticalPath(8,1,4);
+            makeVerticalPath(7,4,8);
+            makeVerticalPath(4,6,8);
+            makeHorizontalPath(4,7,6);
+            makeHorizontalPath(4,7,8);
+            makeVerticalPath(9,5,9);
+            makeHorizontalPath(9,11,5);
+            makeEnemy(11,9);
+            makeExit(9,9);
+            makePlayer(1,1);
             break;
-
-
-
         }
         case LEVEL_FIVE: {
-
+            setDimensions(11,11);
+            
         }
         case LEVEL_SIX: {
 
