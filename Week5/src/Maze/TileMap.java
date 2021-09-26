@@ -116,13 +116,62 @@ public class TileMap {
         }
         case LEVEL_FIVE: {
             setDimensions(11,11);
-            
+            makeHorizontalPath(1,3,1);
+            makeHorizontalPath(6,10,1);
+            makeHorizontalPath(1,3,3);
+            makeHorizontalPath(5,8,3);
+            makeHorizontalPath(1,6,5);
+            makeHorizontalPath(8,9,6);
+            makeHorizontalPath(1,4,7);
+            makeHorizontalPath(6,9,8);
+            makeHorizontalPath(3,4,9);
+            makeHorizontalPath(6,7,10);
+            makeHorizontalPath(9,11,10);
+            makeHorizontalPath(1,4,11);
+            makeVerticalPath(3,1,3);
+            makeVerticalPath(6,1,3);
+            makeVerticalPath(10,1,4);
+            makeVerticalPath(1,3,5);
+            makeVerticalPath(5,3,5);
+            makeVerticalPath(8,3,4);
+            makeVerticalPath(4,5,7);
+            makeVerticalPath(6,5,11);
+            makeVerticalPath(9,6,11);
+            makeVerticalPath(11,5,10);
+            makeVerticalPath(1,7,11);
+            makeVerticalPath(4,9,11);
+            makePlayer(1,1);
+            makeExit(5,11);
+            makeEnemy(1,11);
+            makeEnemy(4,10);
+            makeEnemy(8,6);
+            break;
         }
         case LEVEL_SIX: {
-
+            setDimensions(10,13);
+            makeHorizontalPath(1,9,1);
+            makeHorizontalPath(1,9,3);
+            makeHorizontalPath(1,9,5);
+            makeHorizontalPath(1,9,9);
+            makeHorizontalPath(1,9,11);
+            makeHorizontalPath(1,9,13);
+            makeVerticalPath(1,1,13);
+            makeVerticalPath(5,1,13);
+            makeVerticalPath(9,1,13);
+            makeVerticalPath(3,1,3);
+            makeVerticalPath(7,1,3);
+            makeVerticalPath(3,5,11);
+            makeVerticalPath(7,5,11);
+            makeEnemy(1,5);
+            makeEnemy(9,5);
+            makeEnemy(3,8);
+            makeEnemy(7,8);
+            makeEnemy(5,11);
+            makeExit(13,5);
+            makePlayer(1,5);
+            break;
         }
         case LEVEL_SEVEN: {
-
         }
         case LEVEL_EIGHT: {
 
