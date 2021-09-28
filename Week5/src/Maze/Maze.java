@@ -95,7 +95,7 @@ public class Maze {
         };
     }
     public static void main (String [] args) {
-        levelNumber = 6;
+        levelNumber = 1;
         TitleScreen title = new TitleScreen();
         title.startButton.addActionListener(new ActionListener() {
 
@@ -107,7 +107,7 @@ public class Maze {
         title.instructionsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                displayInstructions();
             }
         });
         title.highScoreButton.addActionListener(new ActionListener() {
@@ -118,7 +118,15 @@ public class Maze {
         });
     }
     public static void displayInstructions() {
-
+        JFrame frame = new JFrame();
+        //custom title, warning icon
+        JOptionPane.showMessageDialog(frame,
+                "Instructions \n" +
+                        "Get the blue guy to the exit in each maze.\n" +
+                        "Avoid the Red Guys. \n" +
+                        "Use W,A,S,D or the Arrow keys to move your character",
+                "Instructions:",
+                JOptionPane.WARNING_MESSAGE);
     }
 
     public static void gameLevelSequence(boolean winLevel) {
