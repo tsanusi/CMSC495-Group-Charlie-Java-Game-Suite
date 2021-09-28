@@ -95,7 +95,7 @@ public class Maze {
         };
     }
     public static void main (String [] args) {
-        levelNumber = 1;
+        levelNumber = 6;
         TitleScreen title = new TitleScreen();
         title.startButton.addActionListener(new ActionListener() {
 
@@ -125,7 +125,7 @@ public class Maze {
         if (winLevel) {
             levelNumber++;
         }
-        if (levelNumber > 12) {
+        if (levelNumber > 8) {
             //win Game Sequence
         }
         else {
@@ -143,10 +143,6 @@ public class Maze {
             case 6: { maze = new Maze(LevelNames.LEVEL_SIX);break; }
             case 7: { maze = new Maze(LevelNames.LEVEL_SEVEN); break; }
             case 8: { maze = new Maze(LevelNames.LEVEL_EIGHT); break; }
-            case 9: { maze = new Maze(LevelNames.LEVEL_NINE); break; }
-            case 10: { maze = new Maze(LevelNames.LEVEL_TEN); break; }
-            case 11: { maze = new Maze(LevelNames.LEVEL_ELEVEN); break; }
-            case 12: { maze = new Maze(LevelNames.LEVEL_TWELVE); break; }
         }
         Container contentPane = maze.Frame.getContentPane();
         gameScreen.addKeyListener(kListener);

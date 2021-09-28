@@ -17,7 +17,7 @@ import java.io.IOException;
 enum Mouth {SMILE,CAUTIOUS,MAD}
 
 public class GameScreen extends Canvas {
-    final int BLOCK_SIZE = 50;
+    final int BLOCK_SIZE = 45;
     static int playerXPosition, playerYPosition;
     int xTotalDimensions;
     int yTotalDimensions;

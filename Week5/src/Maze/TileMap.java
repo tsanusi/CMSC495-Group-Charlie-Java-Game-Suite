@@ -14,7 +14,7 @@ package Maze;
 //////////////////////////////////////////////
 enum Directions {UP, DOWN, LEFT, RIGHT}
 enum LevelNames {LEVEL_ONE, LEVEL_TWO, LEVEL_THREE, LEVEL_FOUR, LEVEL_FIVE, LEVEL_SIX, LEVEL_SEVEN,
-                 LEVEL_EIGHT, LEVEL_NINE, LEVEL_TEN, LEVEL_ELEVEN, LEVEL_TWELVE}
+                 LEVEL_EIGHT}
 enum MazeItems {FLOOR, WALL, EXIT, PLAYER_POSITION, ENEMY_POSITION,PLAYER_POSITION_UP,PLAYER_POSITION_DOWN,PLAYER_POSITION_LEFT,
                 PLAYER_POSITION_RIGHT,ENEMY_POSITION_UP,ENEMY_POSITION_DOWN,ENEMY_POSITION_LEFT,ENEMY_POSITION_RIGHT, PLAYER_DEAD, PLAYER_WIN}
 public class TileMap {
@@ -176,7 +176,7 @@ public class TileMap {
             break;
         }
         case LEVEL_SEVEN: {
-            setDimensions(13,11);
+            setDimensions(12,11);
             makeHorizontalPath(1,3,2);
             makeVerticalPath(3,2,9);
             makeHorizontalPath(3,9,9);
@@ -187,25 +187,56 @@ public class TileMap {
             makeVerticalPath(10,3,5);
             makeHorizontalPath(5,10,3);
             makeVerticalPath(5,1,3);
-            makeHorizontalPath(5,13,1);
-            makeEnemy(2,1);
-            makePlayer(2,3);
+            makeHorizontalPath(5,12,1);
+            makeVerticalPath(12,1,7);
+            makeHorizontalPath(11,12,7);
+            makeVerticalPath(11,7,11);
+            makeHorizontalPath(1,11,11);
+            makeVerticalPath(1,4,11);
+            makeEnemy(1,2);
+            makePlayer(3,2);
+            makeExit(1,4);
             break;
         }
         case LEVEL_EIGHT: {
-
-        }
-        case LEVEL_NINE: {
-
-        }
-        case LEVEL_TEN: {
-
-        }
-        case LEVEL_ELEVEN: {
-
-        }
-        case LEVEL_TWELVE: {
-
+            setDimensions(19,19);
+            makeHorizontalPath(1,4,3);
+            makeVerticalPath(4,1,3);
+            makeHorizontalPath(4,7,1);
+            makeVerticalPath(7,1,3);
+            makeHorizontalPath(7,9,2);
+            makeVerticalPath(9,1,2);
+            makeHorizontalPath(9,18,1);
+            makeVerticalPath(18,1,3);
+            makeHorizontalPath(11,18,3);
+            makeHorizontalPath(9,11,4);
+            makeHorizontalPath(8,9,5);
+            makeHorizontalPath(13,18,5);
+            makeVerticalPath(8,5,10);
+            makeVerticalPath(18,5,10);
+            makeHorizontalPath(12,13,6);
+            makeHorizontalPath(10,12,7);
+            makeVerticalPath(10,7,10);
+            makeVerticalPath(1,3,14);
+            makeHorizontalPath(1,11,10);
+            makeHorizontalPath(17,18,10);
+            makeHorizontalPath(16,17,11);
+            makeVerticalPath(16,11,13);
+            makeHorizontalPath(1,9,12);
+            makeHorizontalPath(1,11,14);
+            makeVerticalPath(6,12,16);
+            makeHorizontalPath(11,12,11);
+            makeHorizontalPath(12,13,12);
+            makeHorizontalPath(13,16,13);
+            makeVerticalPath(13,12,18);
+            makeVerticalPath(11,14,18);
+            makeHorizontalPath(7,13,18);
+            makePlayer(7,1);
+            makeEnemy(2,4);
+            makeEnemy(18,5);
+            makeEnemy(6,12);
+            makeExit(6,18);
+            break;
         }
     }
 }
