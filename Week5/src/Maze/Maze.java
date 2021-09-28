@@ -26,6 +26,7 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 public class Maze {
     JButton restartButton;
     JTextField timeDisplay;
+    static Maze maze;
     static JFrame Frame;
     static GameScreen gameScreen;
     static TileMap mazeLevelData;
@@ -132,7 +133,7 @@ public class Maze {
         }
     }
     public static void levelSelector (int  levelNumbers) {
-        Maze maze = null;
+         maze = null;
         switch (levelNumbers) {
             case 1: { maze = new Maze(LevelNames.LEVEL_ONE); break; }
             case 2: { maze = new Maze(LevelNames.LEVEL_TWO); break; }
@@ -157,7 +158,7 @@ public class Maze {
         Maze.mazeLevelData.mazeGrid[winLocationX][winLocationY] = MazeItems.PLAYER_WIN;
         Maze.gameScreen.repaint();
         JOptionPane.showMessageDialog(wMs,"Good Job, You made it to the Exit!.");
-
+        maze.Frame.setVisible(false);
         gameLevelSequence(true);
 
     }
@@ -167,6 +168,7 @@ public class Maze {
         Maze.mazeLevelData.mazeGrid[deathLocationX][deathLocationY] = MazeItems.PLAYER_DEAD;
         Maze.gameScreen.repaint();
         JOptionPane.showMessageDialog(f,"Uh oh, You were caught, Try again!.");
+        maze.Frame.setVisible(false);
         gameLevelSequence(false);
     }
 

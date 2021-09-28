@@ -89,29 +89,33 @@ public class TileMap {
             makeVerticalPath(6,5,10);
             makeHorizontalPath(1,3,10);
             makeHorizontalPath(6,9,10);
+            makeHorizontalPath(5,8,3);
             makeEnemy(10,1);
             makeEnemy(1,10);
-            makeEnemy(10,9);
-            makeExit(7,9);
+            makeEnemy(9,10);
+            makeExit(9,7);
             makePlayer(1,1);
             break;
         }
         case LEVEL_FOUR: {
             setDimensions(11,9);
             makeHorizontalPath(1,5,1);
-            makeHorizontalPath(8,11,1);
             makeVerticalPath(5,1,3);
+            makeHorizontalPath(5,6,3);
             makeVerticalPath(6,3,4);
-            makeVerticalPath(8,1,4);
+            makeHorizontalPath(6,8,4);
+            makeHorizontalPath(8,11,1);
+            makeVerticalPath(11,1,9);
             makeVerticalPath(7,4,8);
-            makeVerticalPath(4,6,8);
             makeHorizontalPath(4,7,6);
+            makeVerticalPath(4,6,8);
             makeHorizontalPath(4,7,8);
-            makeVerticalPath(9,5,9);
             makeHorizontalPath(9,11,5);
+            makeVerticalPath(9,5,9);
+            makeVerticalPath(8,1,4);
+            makePlayer(1,1);
             makeEnemy(11,9);
             makeExit(9,9);
-            makePlayer(1,1);
             break;
         }
         case LEVEL_FIVE: {
@@ -141,7 +145,7 @@ public class TileMap {
             makeVerticalPath(1,7,11);
             makeVerticalPath(4,9,11);
             makePlayer(1,1);
-            makeExit(5,11);
+            makeExit(11,5);
             makeEnemy(1,11);
             makeEnemy(4,10);
             makeEnemy(8,6);
@@ -167,8 +171,8 @@ public class TileMap {
             makeEnemy(3,8);
             makeEnemy(7,8);
             makeEnemy(5,11);
-            makeExit(13,5);
-            makePlayer(1,5);
+            makeExit(5,13);
+            makePlayer(5,1);
             break;
         }
         case LEVEL_SEVEN: {
