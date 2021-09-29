@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="CMSC495-Group-Charlie-Java-Game-Suite">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/JavaGameSuiteWeek6.zip!/" />
+      <root url="jar://$PROJECT_DIR$/WordSearchProgram.zip!/" />
+      <root url="jar://$PROJECT_DIR$/SliderPuzzle.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Sudoku.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Java_Snake_Game.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
