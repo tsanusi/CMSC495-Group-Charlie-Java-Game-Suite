@@ -18,10 +18,8 @@ enum Mouth {SMILE,CAUTIOUS,MAD}
 
 public class GameScreen extends Canvas {
     int BLOCK_SIZE = 50;
-    static int playerXPosition, playerYPosition;
     int xTotalDimensions;
     int yTotalDimensions;
-    Image enemyLookUp;
     boolean mazeIsDrawn;
     GameScreen ( int blockSize, MazeItems[][] mItems) {
         this.BLOCK_SIZE = blockSize;
