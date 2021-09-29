@@ -4,17 +4,16 @@ package Maze;
 // CMSC 495 - Fall 2021                     //
 // Professor Mark Munoz                     //
 //------------------------------------------//
-// Maze.Maze Game                                //
+// Maze Game                                //
 // Written in Java:                         //
 //------------------------------------------//
-// Class: Maze.TileMap.java                      //
+// Class: TileMap.java                      //
 // This class holds a Tile Map and holds    //
 // the data for the level layouts of the    //
 // maze game.                               //
 //////////////////////////////////////////////
 enum Directions {UP, DOWN, LEFT, RIGHT}
-enum LevelNames {LEVEL_ONE, LEVEL_TWO, LEVEL_THREE, LEVEL_FOUR, LEVEL_FIVE, LEVEL_SIX, LEVEL_SEVEN,
-                 LEVEL_EIGHT}
+enum LevelNames {LEVEL_ONE, LEVEL_TWO, LEVEL_THREE, LEVEL_FOUR, LEVEL_FIVE, LEVEL_SIX, LEVEL_SEVEN,LEVEL_EIGHT}
 enum MazeItems {FLOOR, WALL, EXIT, PLAYER_POSITION, ENEMY_POSITION,PLAYER_POSITION_UP,PLAYER_POSITION_DOWN,PLAYER_POSITION_LEFT,
                 PLAYER_POSITION_RIGHT,ENEMY_POSITION_UP,ENEMY_POSITION_DOWN,ENEMY_POSITION_LEFT,ENEMY_POSITION_RIGHT, PLAYER_DEAD, PLAYER_WIN}
 public class TileMap {
@@ -22,11 +21,13 @@ public class TileMap {
     MazeItems [][] mazeGrid;
     int xDimensions, yDimensions,
             playerX, playerY;
+    int blockSize;
     EnemyList enemyList;
     TileMap (LevelNames levelName) {
     switch (levelName) {
         case LEVEL_ONE: {
             setDimensions(10,10);
+            setBlockSize(50);
             makeHorizontalPath(1,4,1);
             makeVerticalPath(1,1,5);
             makeHorizontalPath(1,6,5);
@@ -52,6 +53,7 @@ public class TileMap {
         }
         case LEVEL_TWO: {
             setDimensions(17,8);
+            setBlockSize(50);
             makeHorizontalPath(1,3,1);
             makeVerticalPath(1,1,7);
             makeHorizontalPath(1,5,8);
@@ -77,6 +79,7 @@ public class TileMap {
         }
         case LEVEL_THREE: {
             setDimensions(10,10);
+            setBlockSize(50);
             makeHorizontalPath(1,5,1);
             makeVerticalPath(2,1,5);
             makeHorizontalPath(5,2,9);
@@ -99,6 +102,7 @@ public class TileMap {
         }
         case LEVEL_FOUR: {
             setDimensions(11,9);
+            setBlockSize(50);
             makeHorizontalPath(1,5,1);
             makeVerticalPath(5,1,3);
             makeHorizontalPath(5,6,3);
@@ -120,6 +124,7 @@ public class TileMap {
         }
         case LEVEL_FIVE: {
             setDimensions(11,11);
+            setBlockSize(50);
             makeHorizontalPath(1,3,1);
             makeHorizontalPath(6,10,1);
             makeHorizontalPath(1,3,3);
@@ -153,6 +158,7 @@ public class TileMap {
         }
         case LEVEL_SIX: {
             setDimensions(10,13);
+            setBlockSize(50);
             makeHorizontalPath(1,9,1);
             makeHorizontalPath(1,9,3);
             makeHorizontalPath(1,9,5);
@@ -177,6 +183,7 @@ public class TileMap {
         }
         case LEVEL_SEVEN: {
             setDimensions(12,11);
+            setBlockSize(50);
             makeHorizontalPath(1,3,2);
             makeVerticalPath(3,2,9);
             makeHorizontalPath(3,9,9);
@@ -200,6 +207,7 @@ public class TileMap {
         }
         case LEVEL_EIGHT: {
             setDimensions(19,19);
+            setBlockSize(40);
             makeHorizontalPath(1,4,3);
             makeVerticalPath(4,1,3);
             makeHorizontalPath(4,7,1);
@@ -239,6 +247,9 @@ public class TileMap {
             break;
         }
     }
+}
+private void setBlockSize (int blockSize) {
+        this.blockSize = blockSize;
 }
 
     private void setDimensions (int xRows, int yRows) {

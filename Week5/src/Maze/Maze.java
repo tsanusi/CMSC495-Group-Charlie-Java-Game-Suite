@@ -44,9 +44,9 @@ public class Maze {
         this.levelName = levelName;
         Frame = new JFrame("Maze Game");
         Frame.setResizable(false);
-        Frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        //Frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         mazeLevelData = new TileMap(levelName);
-        gameScreen = new GameScreen(mazeLevelData.mazeGrid);
+        gameScreen = new GameScreen(mazeLevelData.blockSize,mazeLevelData.mazeGrid);
         int xAt20Percent = (int)(((double)gameScreen.xTotalDimensions)* .2);
         int yAt20Percent = (int)(((double)gameScreen.xTotalDimensions) * .2);
         Frame.setSize(gameScreen.xTotalDimensions  , gameScreen.yTotalDimensions + yAt20Percent);

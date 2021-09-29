@@ -17,13 +17,14 @@ import java.io.IOException;
 enum Mouth {SMILE,CAUTIOUS,MAD}
 
 public class GameScreen extends Canvas {
-    final int BLOCK_SIZE = 45;
+    int BLOCK_SIZE = 50;
     static int playerXPosition, playerYPosition;
     int xTotalDimensions;
     int yTotalDimensions;
     Image enemyLookUp;
     boolean mazeIsDrawn;
-    GameScreen ( MazeItems[][] mItems) {
+    GameScreen ( int blockSize, MazeItems[][] mItems) {
+        this.BLOCK_SIZE = blockSize;
         this.xTotalDimensions = BLOCK_SIZE * mItems.length;
         this.yTotalDimensions = BLOCK_SIZE * mItems[0].length;
         mazeIsDrawn = false;
