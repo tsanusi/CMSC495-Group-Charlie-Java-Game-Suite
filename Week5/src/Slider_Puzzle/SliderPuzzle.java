@@ -77,7 +77,7 @@ public class SliderPuzzle extends JFrame implements ActionListener {
     public SliderPuzzle() {
 
         super("Slider Puzzle");
-
+        System.out.println (System.getProperty("user.dir"));
         imageDivider(new File("resources/villains.jpg"));
         imageDivider(new File("resources/Christmas.jpg"));
         imageDivider(new File("resources/NewYears.jpg"));
