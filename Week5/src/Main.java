@@ -34,7 +34,7 @@ public class Main {
     public static void main(String[] args) {
         frame = new JFrame();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setSize(300,450);
+        frame.setSize(300,500);
         panel = new JPanel();
         panel.setBounds(0,0,300,300);
         panel.setLayout(null);
