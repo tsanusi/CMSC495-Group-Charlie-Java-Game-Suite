@@ -65,34 +65,19 @@ public class Main {
         frame.setVisible(true);
         game1Button.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent ae) {
-                Maze.Maze.main(null);
-            }
-        });
+            public void actionPerformed(ActionEvent ae) {Maze.Maze.main(null); } });
         game2Button.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent ae) {
-                Snake.Snake.main(null);
-            }
-        });
+            public void actionPerformed(ActionEvent ae) { Snake.Snake.main(null); } });
         game3Button.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent ae) {
-            	Sudoku.main(null);
-            }
-        });
+            public void actionPerformed(ActionEvent ae) { Sudoku.main(null); } });
         game4Button.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent ae) {
-            	Word_Search.WordSearchProgram.main(null);
-            }
-        });
+            public void actionPerformed(ActionEvent ae) { Word_Search.WordSearchProgram.main(null); } });
         game5Button.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent ae) {
-                SliderPuzzle.main(null);
-            }
-        });
+            public void actionPerformed(ActionEvent ae) { SliderPuzzle.main(null);} });
         aboutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
