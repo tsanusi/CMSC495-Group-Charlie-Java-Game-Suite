@@ -11,7 +11,8 @@ import Sudoku.controller.view.SudokuPanel;
 public class Sudoku extends JFrame {
     public Sudoku() {
         super("Sudoku");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        // Note: Line 15 commented out so that the entire program does not close - WM
+        //setDefaultCloseOperation(EXIT_ON_CLOSE);
         getContentPane().setLayout(new BorderLayout());
 
         Game game = new Game();

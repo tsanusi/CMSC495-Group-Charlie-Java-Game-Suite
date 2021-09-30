@@ -24,7 +24,8 @@ public class Snake extends JFrame {
         
         setTitle("Snake");
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // Note: Line 27 Commented out to keep main menu opened - WM
+        //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
 

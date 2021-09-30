@@ -99,7 +99,8 @@ public class WordSearchProgram  extends JFrame implements MouseMotionListener, M
 	public WordSearchProgram() {
 		//set up GUI
 		super("Word_Search.Word Search");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // End program when window closes.
+		// Note: Line 103 commented out so that program does not end when closed
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // End program when window closes.
 		setResizable(true); // Don't let the user resize window.
 		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
 		setLocation( // Center window on screen.
