@@ -11,9 +11,6 @@
 //------------------------------------------//
 // Edit of code is Final                    //
 //////////////////////////////////////////////
-
-
-
 import Slider_Puzzle.SliderPuzzle;
 import Sudoku.controller.Sudoku;
 import Word_Search.WordSearchProgram;
@@ -21,9 +18,7 @@ import Word_Search.WordSearchProgram;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-// NOTE: FOLLOW STEP ONE,TWO, AND THREE AND LINES 8, 53, and 86.
 public class Main {
-    // Step 1 : Place Game names here in the following string designations. The Maze.Maze Game is there as an example.
     private static final String gameOne = "Maze",
                                 gameTwo = "Snake",
                                 gameThree = "Sudoku",
@@ -68,9 +63,6 @@ public class Main {
         panel.add (secondDialogueBox);
         frame.add (panel);
         frame.setVisible(true);
-        // Step 2: In the following lines starting with line 61, replace that line with the name of your game's
-        //         main class followed by ".main(null);" The maze game is there as examples. Replace "Maze.Maze" with
-        //         the main class of your game file.
         game1Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -101,13 +93,9 @@ public class Main {
                 SliderPuzzle.main(null);
             }
         });
-        // Step 3: Complete the credit with your contributions here followed by "\n" for each new line.
-        //         This is the about button
         aboutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                // New Step: type your contribution like so between the ":" and the "\n"
-                // It will show up like a regular credit roll.
                 JOptionPane.showMessageDialog(frame,
                         "CMSC 495 Game Suite.\n" +
                                 "CMSC 495\n" +
