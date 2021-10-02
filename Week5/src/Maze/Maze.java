@@ -36,12 +36,14 @@ public class Maze {
     static KeyListener kListener;
     boolean threadStarted;
     static int levelNumber;
+    static PlayerStanding playerStanding;
     /*****************************
      * Maze Class Constructor    *
      * @param levelName          *
      *****************************/
     Maze (LevelNames levelName) {
         this.levelName = levelName;
+        playerStanding = new PlayerStanding();
         Frame = new JFrame("Maze Game");
         Frame.setResizable(false);
         //Frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
