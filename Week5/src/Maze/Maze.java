@@ -102,6 +102,12 @@ public class Maze {
             }
         };
     }
+
+    /***********************************************
+     * This is the main method called to start the *
+     * entire game                                 *
+     * @param args                                 *
+     ***********************************************/
     public static void main (String [] args) {
         levelNumber = 0;
         TitleScreen title = new TitleScreen();
@@ -126,6 +132,12 @@ public class Maze {
             }
         });
     }
+
+    /******************************************************
+     * This method holds the instructions used to display *
+     * a window which will display the instructions upon  *
+     * request                                            *
+     ******************************************************/
     public static void displayInstructions() {
         JFrame frame = new JFrame();
         //custom title, warning icon
@@ -138,6 +150,12 @@ public class Maze {
                 JOptionPane.WARNING_MESSAGE);
     }
 
+    /*******************************************************
+     * This method is used to start the maze levels and    *
+     * advance the levels if the mazes were successfully   *
+     * completed.                                          *
+     * @param winLevel                                     *
+     *******************************************************/
     public static void gameLevelSequence(boolean winLevel) {
         if (winLevel) {
             levelNumber++;
@@ -154,8 +172,16 @@ public class Maze {
                     playerStanding.hours, playerStanding.minutes, playerStanding.seconds);
         }
     }
-    public static void levelSelector (int  levelNumbers, int dc, int h, int m, int s) {
 
+    /*******************************************************************
+     * This method  starts the maze depending on what level was called *
+     * @param levelNumbers - the level number                          *
+     * @param dc - deathcount from last maze                           *
+     * @param h  - hours from last maze                                *
+     * @param m  - minutes from last maze                              *
+     * @param s  - seconds from last maze                              *
+     *******************************************************************/
+    public static void levelSelector (int  levelNumbers, int dc, int h, int m, int s) {
          maze = null;
         switch (levelNumbers) {
             case 1: { maze = new Maze(LevelNames.LEVEL_ONE, dc,h,m,s); break; }
@@ -169,8 +195,13 @@ public class Maze {
         }
         Container contentPane = maze.Frame.getContentPane();
         gameScreen.addKeyListener(kListener);
-
     }
+
+    /**********************************************************************
+     * The sequence of instructions when a maze is won!                   *
+     * @param winLocationX                                                *
+     * @param winLocationY                                                *
+     **********************************************************************/
     public static void winMazeSequence (int winLocationX, int winLocationY) {
         JFrame wMs = new JFrame();
         em.setStopThread();
@@ -182,6 +213,13 @@ public class Maze {
         gameLevelSequence(true);
 
     }
+
+    /***********************************************************************************
+     * The instruction when an enemy catch the player. it shows a dialogue and and     *
+     * restarts the maze.                                                              *
+     * @param deathLocationX                                                           *
+     * @param deathLocationY                                                           *
+     ***********************************************************************************/
     public static void deathSequence(int deathLocationX, int deathLocationY) {
         JFrame f = new JFrame();
         em.setStopThread();
