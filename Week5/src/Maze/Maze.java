@@ -24,8 +24,8 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
  * This holds all class variables.            *
  **********************************************/
 public class Maze {
-    JButton restartButton;
-    JTextField timeDisplay;
+    //xJButton restartButton;
+    static JLabel statusDisplay;
     static Maze maze;
     static JFrame Frame;
     static GameScreen gameScreen;
@@ -41,17 +41,22 @@ public class Maze {
      * Maze Class Constructor    *
      * @param levelName          *
      *****************************/
-    Maze (LevelNames levelName) {
-        this.levelName = levelName;
+    Maze (LevelNames levelName, int dc, int h, int m, int s) {
         playerStanding = new PlayerStanding();
+        this.levelName = levelName;
+        playerStanding = new PlayerStanding(dc,h,m,s);
         Frame = new JFrame("Maze Game");
         Frame.setResizable(false);
         //Frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         mazeLevelData = new TileMap(levelName);
         gameScreen = new GameScreen(mazeLevelData.blockSize,mazeLevelData.mazeGrid);
-        int xAt20Percent = (int)(((double)gameScreen.xTotalDimensions)* .2);
+        statusDisplay = new JLabel("Click on screen and press Arrows to Start . . .");
+        //statusDisplay.setEditable(false);
+        Frame.add(statusDisplay);
         int yAt20Percent = (int)(((double)gameScreen.xTotalDimensions) * .2);
-        Frame.setSize(gameScreen.xTotalDimensions  , gameScreen.yTotalDimensions + yAt20Percent);
+        Frame.setSize(gameScreen.xTotalDimensions  , gameScreen.yTotalDimensions + 100);
+        statusDisplay.setBounds(40,gameScreen.yTotalDimensions+20,265,30);
+
         Frame.add(gameScreen);
         threadStarted = false;
         Frame.setVisible(true);
@@ -87,6 +92,7 @@ public class Maze {
                 gameScreen.repaint();
                 if (!threadStarted) {
                     em.start();
+                    playerStanding.start();
                     threadStarted = true;
                 }
             }
@@ -97,12 +103,13 @@ public class Maze {
         };
     }
     public static void main (String [] args) {
-        levelNumber = 1;
+        levelNumber = 0;
         TitleScreen title = new TitleScreen();
         title.startButton.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
+                playerStanding = new PlayerStanding();
                 gameLevelSequence(false);
             }
         });
@@ -135,24 +142,30 @@ public class Maze {
         if (winLevel) {
             levelNumber++;
         }
-        if (levelNumber > 8) {
+        if (levelNumber == 0) {
+            levelNumber++;
+            levelSelector(levelNumber,0,0,0,0);
+        }
+        else if (levelNumber > 8) {
             //win Game Sequence
         }
         else {
-            levelSelector(levelNumber);
+            levelSelector(levelNumber, playerStanding.deathCount,
+                    playerStanding.hours, playerStanding.minutes, playerStanding.seconds);
         }
     }
-    public static void levelSelector (int  levelNumbers) {
+    public static void levelSelector (int  levelNumbers, int dc, int h, int m, int s) {
+
          maze = null;
         switch (levelNumbers) {
-            case 1: { maze = new Maze(LevelNames.LEVEL_ONE); break; }
-            case 2: { maze = new Maze(LevelNames.LEVEL_TWO); break; }
-            case 3: { maze = new Maze(LevelNames.LEVEL_THREE); break; }
-            case 4: { maze = new Maze(LevelNames.LEVEL_FOUR); break; }
-            case 5: { maze = new Maze(LevelNames.LEVEL_FIVE); break; }
-            case 6: { maze = new Maze(LevelNames.LEVEL_SIX);break; }
-            case 7: { maze = new Maze(LevelNames.LEVEL_SEVEN); break; }
-            case 8: { maze = new Maze(LevelNames.LEVEL_EIGHT); break; }
+            case 1: { maze = new Maze(LevelNames.LEVEL_ONE, dc,h,m,s); break; }
+            case 2: { maze = new Maze(LevelNames.LEVEL_TWO,dc,h,m,s); break; }
+            case 3: { maze = new Maze(LevelNames.LEVEL_THREE, dc,h,m,s); break; }
+            case 4: { maze = new Maze(LevelNames.LEVEL_FOUR, dc,h,m,s); break; }
+            case 5: { maze = new Maze(LevelNames.LEVEL_FIVE, dc,h,m,s); break; }
+            case 6: { maze = new Maze(LevelNames.LEVEL_SIX, dc,h,m,s);break; }
+            case 7: { maze = new Maze(LevelNames.LEVEL_SEVEN, dc,h,m,s); break; }
+            case 8: { maze = new Maze(LevelNames.LEVEL_EIGHT, dc,h,m,s); break; }
         }
         Container contentPane = maze.Frame.getContentPane();
         gameScreen.addKeyListener(kListener);
@@ -163,6 +176,7 @@ public class Maze {
         em.setStopThread();
         Maze.mazeLevelData.mazeGrid[winLocationX][winLocationY] = MazeItems.PLAYER_WIN;
         Maze.gameScreen.repaint();
+        playerStanding.stopClock();
         JOptionPane.showMessageDialog(wMs,"Good Job, You made it to the Exit!.");
         maze.Frame.setVisible(false);
         gameLevelSequence(true);
@@ -172,6 +186,8 @@ public class Maze {
         JFrame f = new JFrame();
         em.setStopThread();
         Maze.mazeLevelData.mazeGrid[deathLocationX][deathLocationY] = MazeItems.PLAYER_DEAD;
+        playerStanding.stopClock();
+        playerStanding.playerDied();
         Maze.gameScreen.repaint();
         JOptionPane.showMessageDialog(f,"Uh oh, You were caught, Try again!.");
         maze.Frame.setVisible(false);

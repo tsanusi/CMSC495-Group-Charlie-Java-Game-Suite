@@ -19,9 +19,10 @@ public class EnemyMove extends Thread {
     public void run() {
         while (!stopThread) {
             try {
+                Maze.playerStanding.startClock();
                 if (Maze.mazeLevelData.enemyList != null) {
                     Maze.mazeLevelData.enemyList.enemyMove();
-                    Maze.playerStanding.startClock();
+
                 }
                 Thread.sleep(750);
             } catch (InterruptedException e) {

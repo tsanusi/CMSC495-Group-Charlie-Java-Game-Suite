@@ -1,12 +1,17 @@
 package Maze;
 
 
-public class PlayerStanding implements Runnable {
+public class PlayerStanding extends Thread {
     int deathCount;
     long millisecondCounter;
     int hours, minutes, seconds;
     boolean Running;
-
+    PlayerStanding  (int deathCount, int hours, int minutes, int seconds ) {
+        this.deathCount = deathCount;
+        this.hours = hours;
+        this.minutes = minutes;
+        this.seconds = seconds;
+    }
     PlayerStanding () {
         deathCount = 0;
         millisecondCounter = 0;
@@ -43,14 +48,18 @@ public class PlayerStanding implements Runnable {
             return Integer.toString(Segment);
         }
     }
-    public void run() {
+     public void run() {
         while (true) {
             while (Running) {
+                //System.out.println("Time has started");
                 try {
-                    wait(10);
-                    millisecondCounter = millisecondCounter + 10;
+
                     if (millisecondCounter >= 1000) {
+                        millisecondCounter = 0;
                         seconds++;
+                        Maze.statusDisplay.setText (
+                                getDeathCount() + " Time: " + getCurrentTime()
+                        );
                         if (seconds >= 60) {
                             seconds = 0;
                             minutes ++;
@@ -60,6 +69,8 @@ public class PlayerStanding implements Runnable {
                             }
                         }
                     }
+                    sleep(10);
+                    millisecondCounter = millisecondCounter + 10;
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
