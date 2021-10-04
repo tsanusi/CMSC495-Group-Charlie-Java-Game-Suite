@@ -109,7 +109,7 @@ public class Maze {
      * @param args                                 *
      ***********************************************/
     public static void main (String [] args) {
-        levelNumber = 0;
+        levelNumber = 8;
         TitleScreen title = new TitleScreen();
         title.startButton.addActionListener(new ActionListener() {
 
