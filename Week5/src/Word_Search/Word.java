@@ -1,12 +1,13 @@
-package Word_Search;/*
- * File: Word_Search.Word.java
+/*
+ * File: Word.java
  * Author: Sherry Funches
- * Revision Date: September 9, 2021
- * Purpose: Class creates a word object for word search game. Words hold
+ * Revision Date: October 3, 2021
+ * Purpose: Class creates a word object for the word search game. Words hold
  * the text of words hidden in the puzzle and the letters(JLabels) for each word.
  */
 
 
+package Word_Search;
 import java.awt.Color;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,8 +15,8 @@ import javax.swing.JLabel;
 
 
 public class Word {
-	String text;
-	Set <JLabel>wordLetters;
+	private String text;
+	private Set <JLabel>wordLetters;
 	
 	public Word(String text) {
 		this.text = text;
