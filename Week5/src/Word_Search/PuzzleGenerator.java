@@ -1,7 +1,7 @@
-package Word_Search;/*
- * File: Word_Search.PuzzleGenerator.java
+/*
+ * File: PuzzleGenerator.java
  * Author: Sherry Funches
- * Revision Date: September 9, 2021
+ * Revision Date: October 3, 2021
  * Purpose: This class reads in a formatted file that specifies the display of letters,
  * hidden words, and the location of hidden words for a word
  * search puzzle. The class creates JLabels representing the letters on the word search
@@ -10,6 +10,7 @@ package Word_Search;/*
  */
 
 
+package Word_Search;
 import java.awt.Font;
 import java.io.BufferedReader;
 import java.io.File;
@@ -24,22 +25,19 @@ import javax.swing.SwingConstants;
 
 public class PuzzleGenerator {
 	
-	JLabel[][]letterMatrix;
-	ArrayList<Word> words;
-	File puzzleDataFile;
-	Font letterFont;
-	int numRows = 0;
-	int numColumns =0;
-	int numWords = 0;
+	private JLabel[][]letterMatrix;
+	private ArrayList<Word> words;
+	private File puzzleDataFile;
+	private Font letterFont;
+	private int numRows = 0;
+	private int numColumns =0;
+	private int numWords = 0;
 	
 	
 	public PuzzleGenerator(File puzzleDataFile, Font letterFont) {
 		this.puzzleDataFile = puzzleDataFile;
 		words = new ArrayList<Word>();
 		this.letterFont = letterFont;
-		//TODO 
-		//Consider adding file not found throw clause here
-		//if not using JFileChooser.
 		readFile();
 	}
 	
