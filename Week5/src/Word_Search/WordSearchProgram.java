@@ -343,7 +343,7 @@ public class WordSearchProgram  extends JFrame implements MouseMotionListener, M
 	}
 	
 	private void selectPuzzleFile() {
-		File puzzleDirectory = new File ("./WordSearchPuzzles");
+		File puzzleDirectory = new File ("./Word_Search/WordSearchPuzzles");
 		JFileChooser fc = new JFileChooser(puzzleDirectory);
 		//prevent user from opening files in other directories
 		fc.setFileView(new FileView() {
