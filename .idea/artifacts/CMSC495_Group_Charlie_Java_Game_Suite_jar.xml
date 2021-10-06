@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="CMSC495-Group-Charlie-Java-Game-Suite:jar">
-    <output-path>$PROJECT_DIR$/Week5/out/artifacts/CMSC495_Group_Charlie_Java_Game_Suite_jar</output-path>
-    <root id="archive" name="CMSC495-Group-Charlie-Java-Game-Suite.jar">
-      <element id="module-output" name="CMSC495-Group-Charlie-Java-Game-Suite" />
-    </root>
-  </artifact>
-</component>
