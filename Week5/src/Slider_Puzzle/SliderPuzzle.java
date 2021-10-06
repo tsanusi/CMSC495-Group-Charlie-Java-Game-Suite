@@ -481,7 +481,7 @@ public class SliderPuzzle extends JFrame implements ActionListener {
                     jButton6.getIcon() == halloweenIcon5 && jButton7.getIcon() == halloweenIcon6 && jButton8.getIcon() ==
                     halloweenIcon7 && jButton9.getIcon() == halloweenIcon8 && jButton10.getIcon() == halloweenIcon9 &&
                     jButton11.getIcon() == halloweenIcon10 && jButton12.getIcon() == halloweenIcon11){
-                JOptionPane.showMessageDialog(null, "Puzzle Complete!", "", JOptionPane.
+                JOptionPane.showMessageDialog(null, "", "Puzzle Complete!", JOptionPane.
                         INFORMATION_MESSAGE, finalPictureIcon0);
             }
         }else if(newChristmasPuzzleButton.isSelected()){
@@ -490,7 +490,7 @@ public class SliderPuzzle extends JFrame implements ActionListener {
                     jButton6.getIcon() == christmasIcon5 && jButton7.getIcon() == christmasIcon6 && jButton8.getIcon() ==
                     christmasIcon7 && jButton9.getIcon() == christmasIcon8 && jButton10.getIcon() == christmasIcon9 &&
                     jButton11.getIcon() == christmasIcon10 && jButton12.getIcon() == christmasIcon11){
-                JOptionPane.showMessageDialog(null, "Puzzle Complete!", "", JOptionPane.
+                JOptionPane.showMessageDialog(null, "", "Puzzle Complete!", JOptionPane.
                         INFORMATION_MESSAGE, finalPictureIcon1);
             }
         }else if(newNewYearsPuzzleButton.isSelected()){
@@ -499,7 +499,7 @@ public class SliderPuzzle extends JFrame implements ActionListener {
                     jButton6.getIcon() == newYears5 && jButton7.getIcon() == newYears6 && jButton8.getIcon() ==
                     newYears7 && jButton9.getIcon() == newYears8 && jButton10.getIcon() == newYears9 &&
                     jButton11.getIcon() == newYears10 && jButton12.getIcon() == newYears11){
-                JOptionPane.showMessageDialog(null, "Puzzle Complete!", "", JOptionPane.
+                JOptionPane.showMessageDialog(null, "", "Puzzle Complete!", JOptionPane.
                         INFORMATION_MESSAGE, finalPictureIcon2);
             }
 
@@ -513,6 +513,7 @@ public class SliderPuzzle extends JFrame implements ActionListener {
     }
 
 }
+
 
 
 
