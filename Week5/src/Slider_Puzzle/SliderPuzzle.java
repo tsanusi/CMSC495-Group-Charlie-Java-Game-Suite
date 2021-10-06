@@ -97,8 +97,8 @@ public class SliderPuzzle extends JFrame implements ActionListener {
         halloweenIcon10 = new ImageIcon("./Slider_Puzzle/resources/Halloween10.jpg");
         halloweenIcon11 = new ImageIcon("./Slider_Puzzle/resources/Halloween11.jpg");
         finalPictureIcon0 = new ImageIcon("./Slider_Puzzle/resources/villains.jpg");
-        finalPictureIcon1 = new ImageIcon("Slider_Puzzle/resources/christmas.jpg");
-        finalPictureIcon2 = new ImageIcon("Slider_Puzzle/resources/newYears.jpg");
+        finalPictureIcon1 = new ImageIcon("./Slider_Puzzle/resources/christmas.jpg");
+        finalPictureIcon2 = new ImageIcon("./Slider_Puzzle/resources/newYears.jpg");
 
 
         christmasIcon0 = new ImageIcon("./Slider_Puzzle/resources/Christmas0.jpg");
