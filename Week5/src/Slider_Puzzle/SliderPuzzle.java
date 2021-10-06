@@ -1,5 +1,6 @@
 package Slider_Puzzle;
 
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -77,54 +78,55 @@ public class SliderPuzzle extends JFrame implements ActionListener {
     public SliderPuzzle() {
 
         super("Slider Puzzle");
-        System.out.println (System.getProperty("user.dir"));
-        imageDivider(new File("resources/villains.jpg"));
-        imageDivider(new File("resources/Christmas.jpg"));
-        imageDivider(new File("resources/NewYears.jpg"));
 
-        halloweenIcon0 = new ImageIcon("resources/Halloween0.jpg");
-        halloweenIcon1 = new ImageIcon("resources/Halloween1.jpg");
-        halloweenIcon2 = new ImageIcon("resources/Halloween2.jpg");
-        halloweenIcon3 = new ImageIcon("resources/Halloween3.jpg");
-        halloweenIcon4 = new ImageIcon("resources/Halloween4.jpg");
-        halloweenIcon5 = new ImageIcon("resources/Halloween5.jpg");
-        halloweenIcon6 = new ImageIcon("resources/Halloween6.jpg");
-        halloweenIcon7 = new ImageIcon("resources/Halloween7.jpg");
-        halloweenIcon8 = new ImageIcon("resources/Halloween8.jpg");
-        halloweenIcon9 = new ImageIcon("resources/Halloween9.jpg");
-        halloweenIcon10 = new ImageIcon("resources/Halloween10.jpg");
-        halloweenIcon11 = new ImageIcon("resources/Halloween11.jpg");
-        finalPictureIcon0 = new ImageIcon("resources/villains.jpg");
-        finalPictureIcon1 = new ImageIcon("resources/Christmas.jpg");
-        finalPictureIcon2 = new ImageIcon("resources/NewYears.jpg");
+        //System.out.println(System.getProperty("user.dir"));
+        imageDivider(new File("./Slider_Puzzle/resources/villains.jpg"));
+        imageDivider(new File("./Slider_Puzzle/resources/christmas.jpg"));
+        imageDivider(new File("./Slider_Puzzle/resources/newYears.jpg"));
 
-
-        christmasIcon0 = new ImageIcon("resources/Christmas0.jpg");
-        christmasIcon1 = new ImageIcon("resources/Christmas1.jpg");
-        christmasIcon2 = new ImageIcon("resources/Christmas2.jpg");
-        christmasIcon3 = new ImageIcon("resources/Christmas3.jpg");
-        christmasIcon4 = new ImageIcon("resources/Christmas4.jpg");
-        christmasIcon5 = new ImageIcon("resources/Christmas5.jpg");
-        christmasIcon6 = new ImageIcon("resources/Christmas6.jpg");
-        christmasIcon7 = new ImageIcon("resources/Christmas7.jpg");
-        christmasIcon8 = new ImageIcon("resources/Christmas8.jpg");
-        christmasIcon9 = new ImageIcon("resources/Christmas9.jpg");
-        christmasIcon10 = new ImageIcon("resources/Christmas10.jpg");
-        christmasIcon11 = new ImageIcon("resources/Christmas11.jpg");
+        halloweenIcon0 = new ImageIcon("./Slider_Puzzle/resources/Halloween0.jpg");
+        halloweenIcon1 = new ImageIcon("./Slider_Puzzle/resources/Halloween1.jpg");
+        halloweenIcon2 = new ImageIcon("./Slider_Puzzle/resources/Halloween2.jpg");
+        halloweenIcon3 = new ImageIcon("./Slider_Puzzle/resources/Halloween3.jpg");
+        halloweenIcon4 = new ImageIcon("./Slider_Puzzle/resources/Halloween4.jpg");
+        halloweenIcon5 = new ImageIcon("./Slider_Puzzle/resources/Halloween5.jpg");
+        halloweenIcon6 = new ImageIcon("./Slider_Puzzle/resources/Halloween6.jpg");
+        halloweenIcon7 = new ImageIcon("./Slider_Puzzle/resources/Halloween7.jpg");
+        halloweenIcon8 = new ImageIcon("./Slider_Puzzle/resources/Halloween8.jpg");
+        halloweenIcon9 = new ImageIcon("./Slider_Puzzle/resources/Halloween9.jpg");
+        halloweenIcon10 = new ImageIcon("./Slider_Puzzle/resources/Halloween10.jpg");
+        halloweenIcon11 = new ImageIcon("./Slider_Puzzle/resources/Halloween11.jpg");
+        finalPictureIcon0 = new ImageIcon("./Slider_Puzzle/resources/villains.jpg");
+        finalPictureIcon1 = new ImageIcon("./Slider_Puzzle/resources/christmas.jpg");
+        finalPictureIcon2 = new ImageIcon("./Slider_Puzzle/resources/newYears.jpg");
 
 
-        newYears0 = new ImageIcon("resources/NewYears0.jpg");
-        newYears1 = new ImageIcon("resources/NewYears1.jpg");
-        newYears2 = new ImageIcon("resources/NewYears2.jpg");
-        newYears3 = new ImageIcon("resources/NewYears3.jpg");
-        newYears4 = new ImageIcon("resources/NewYears4.jpg");
-        newYears5 = new ImageIcon("resources/NewYears5.jpg");
-        newYears6 = new ImageIcon("resources/NewYears6.jpg");
-        newYears7 = new ImageIcon("resources/NewYears7.jpg");
-        newYears8 = new ImageIcon("resources/NewYears8.jpg");
-        newYears9 = new ImageIcon("resources/NewYears9.jpg");
-        newYears10 = new ImageIcon("resources/NewYears10.jpg");
-        newYears11 = new ImageIcon("resources/NewYears11.jpg");
+        christmasIcon0 = new ImageIcon("./Slider_Puzzle/resources/Christmas0.jpg");
+        christmasIcon1 = new ImageIcon("./Slider_Puzzle/resources/Christmas1.jpg");
+        christmasIcon2 = new ImageIcon("./Slider_Puzzle/resources/Christmas2.jpg");
+        christmasIcon3 = new ImageIcon("./Slider_Puzzle/resources/Christmas3.jpg");
+        christmasIcon4 = new ImageIcon("./Slider_Puzzle/resources/Christmas4.jpg");
+        christmasIcon5 = new ImageIcon("./Slider_Puzzle/resources/Christmas5.jpg");
+        christmasIcon6 = new ImageIcon("./Slider_Puzzle/resources/Christmas6.jpg");
+        christmasIcon7 = new ImageIcon("./Slider_Puzzle/resources/Christmas7.jpg");
+        christmasIcon8 = new ImageIcon("./Slider_Puzzle/resources/Christmas8.jpg");
+        christmasIcon9 = new ImageIcon("./Slider_Puzzle/resources/Christmas9.jpg");
+        christmasIcon10 = new ImageIcon("./Slider_Puzzle/resources/Christmas10.jpg");
+        christmasIcon11 = new ImageIcon("./Slider_Puzzle/resources/Christmas11.jpg");
+
+
+        newYears0 = new ImageIcon("./Slider_Puzzle/resources/NewYears0.jpg");
+        newYears1 = new ImageIcon("./Slider_Puzzle/resources/NewYears1.jpg");
+        newYears2 = new ImageIcon("./Slider_Puzzle/resources/NewYears2.jpg");
+        newYears3 = new ImageIcon("./Slider_Puzzle/resources/NewYears3.jpg");
+        newYears4 = new ImageIcon("./Slider_Puzzle/resources/NewYears4.jpg");
+        newYears5 = new ImageIcon("./Slider_Puzzle/resources/NewYears5.jpg");
+        newYears6 = new ImageIcon("./Slider_Puzzle/resources/NewYears6.jpg");
+        newYears7 = new ImageIcon("./Slider_Puzzle/resources/NewYears7.jpg");
+        newYears8 = new ImageIcon("./Slider_Puzzle/resources/NewYears8.jpg");
+        newYears9 = new ImageIcon("./Slider_Puzzle/resources/NewYears9.jpg");
+        newYears10 = new ImageIcon("./Slider_Puzzle/resources/NewYears10.jpg");
+        newYears11 = new ImageIcon("./Slider_Puzzle/resources/NewYears11.jpg");
 
 
         /**
@@ -351,7 +353,7 @@ public class SliderPuzzle extends JFrame implements ActionListener {
      */
     public void imageDivider(File file) {
 
-        if (file.getName().equals("Christmas.jpg")) {
+        if (file.getName().equals("christmas.jpg")) {
             try {
                 FileInputStream fis = new FileInputStream(file);
                 BufferedImage image = ImageIO.read(fis);
@@ -374,7 +376,7 @@ public class SliderPuzzle extends JFrame implements ActionListener {
                     }
                 }
                 for (int i = 0; i < images.length; i++) {
-                    ImageIO.write(images[i], "jpg", new File("resources/Christmas" + i + ".jpg"));
+                    ImageIO.write(images[i], "jpg", new File("./Slider_Puzzle/resources/Christmas" + i + ".jpg"));
                 }
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(null, e.getMessage());
@@ -402,13 +404,13 @@ public class SliderPuzzle extends JFrame implements ActionListener {
                     }
                 }
                 for (int i = 0; i < images.length; i++) {
-                    ImageIO.write(images[i], "jpg", new File("resources/Halloween" + i + ".jpg"));
+                    ImageIO.write(images[i], "jpg", new File("./Slider_Puzzle/resources/Halloween" + i + ".jpg"));
                 }
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(null, e.getMessage());
             }
 
-        }else if(file.getName().equals("NewYears.jpg")){
+        }else if(file.getName().equals("newYears.jpg")){
             try {
                 FileInputStream fis = new FileInputStream(file);
                 BufferedImage image = ImageIO.read(fis);
@@ -431,7 +433,7 @@ public class SliderPuzzle extends JFrame implements ActionListener {
                     }
                 }
                 for (int i = 0; i < images.length; i++) {
-                    ImageIO.write(images[i], "jpg", new File("resources/NewYears" + i + ".jpg"));
+                    ImageIO.write(images[i], "jpg", new File("./Slider_Puzzle/resources/NewYears" + i + ".jpg"));
                 }
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(null, e.getMessage());
@@ -479,7 +481,7 @@ public class SliderPuzzle extends JFrame implements ActionListener {
                     jButton6.getIcon() == halloweenIcon5 && jButton7.getIcon() == halloweenIcon6 && jButton8.getIcon() ==
                     halloweenIcon7 && jButton9.getIcon() == halloweenIcon8 && jButton10.getIcon() == halloweenIcon9 &&
                     jButton11.getIcon() == halloweenIcon10 && jButton12.getIcon() == halloweenIcon11){
-                JOptionPane.showMessageDialog(null, "Puzzle Complete!", "", JOptionPane.
+                JOptionPane.showMessageDialog(null, "", "Puzzle Complete!", JOptionPane.
                         INFORMATION_MESSAGE, finalPictureIcon0);
             }
         }else if(newChristmasPuzzleButton.isSelected()){
@@ -488,7 +490,7 @@ public class SliderPuzzle extends JFrame implements ActionListener {
                     jButton6.getIcon() == christmasIcon5 && jButton7.getIcon() == christmasIcon6 && jButton8.getIcon() ==
                     christmasIcon7 && jButton9.getIcon() == christmasIcon8 && jButton10.getIcon() == christmasIcon9 &&
                     jButton11.getIcon() == christmasIcon10 && jButton12.getIcon() == christmasIcon11){
-                JOptionPane.showMessageDialog(null, "Puzzle Complete!", "", JOptionPane.
+                JOptionPane.showMessageDialog(null, "", "Puzzle Complete!", JOptionPane.
                         INFORMATION_MESSAGE, finalPictureIcon1);
             }
         }else if(newNewYearsPuzzleButton.isSelected()){
@@ -497,7 +499,7 @@ public class SliderPuzzle extends JFrame implements ActionListener {
                     jButton6.getIcon() == newYears5 && jButton7.getIcon() == newYears6 && jButton8.getIcon() ==
                     newYears7 && jButton9.getIcon() == newYears8 && jButton10.getIcon() == newYears9 &&
                     jButton11.getIcon() == newYears10 && jButton12.getIcon() == newYears11){
-                JOptionPane.showMessageDialog(null, "Puzzle Complete!", "", JOptionPane.
+                JOptionPane.showMessageDialog(null, "", "Puzzle Complete!", JOptionPane.
                         INFORMATION_MESSAGE, finalPictureIcon2);
             }
 
@@ -511,6 +513,8 @@ public class SliderPuzzle extends JFrame implements ActionListener {
     }
 
 }
+
+
 
 
 
