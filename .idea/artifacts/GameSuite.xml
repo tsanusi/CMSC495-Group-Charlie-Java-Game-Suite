@@ -1,14 +1,9 @@
 <component name="ArtifactManager">
-  <artifact type="javafx" name="GameSuite">
-    <output-path>$PROJECT_DIR$</output-path>
-    <root id="root">
+  <artifact type="jar" build-on-make="true" name="GameSuite">
+    <output-path>$PROJECT_DIR$/Week5</output-path>
+    <root id="archive" name="GameSuite.jar">
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$USER_HOME$/NEW_CMSC495-Group-Charlie-Java-Game-Suite/META-INF/MANIFEST.MF" />
-      </element>
-      <element id="archive" name="archive.jar">
-        <element id="directory" name="META-INF">
-          <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
-        </element>
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
       </element>
     </root>
   </artifact>
