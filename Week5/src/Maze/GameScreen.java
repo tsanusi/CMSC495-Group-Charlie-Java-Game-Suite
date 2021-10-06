@@ -160,6 +160,10 @@ public class GameScreen extends Canvas {
             g.setColor(mouthBottom);
             g.fillOval((i * BLOCK_SIZE + (BLOCK_SIZE / 4))+ (BLOCK_SIZE/10  ), (j * BLOCK_SIZE+ (BLOCK_SIZE /2) + 15), BLOCK_SIZE / 3, BLOCK_SIZE/5);
         }
+        if (mouthMode == Mouth.SMILE) {
+            g.setColor(mouthTop);
+            g.fillOval((i * BLOCK_SIZE + (BLOCK_SIZE / 4))+ (BLOCK_SIZE/10  ), (j * BLOCK_SIZE+ (BLOCK_SIZE /2) + 10), BLOCK_SIZE / 3, BLOCK_SIZE/5);
+        }
 
     }
 }
