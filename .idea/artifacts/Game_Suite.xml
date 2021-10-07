@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Game Suite">
+    <output-path>$PROJECT_DIR$/Week5/out/artifacts/Game_Suite</output-path>
+    <root id="archive" name="GameSuite.jar">
+      <element id="module-output" name="Week5" />
+    </root>
+  </artifact>
+</component>
