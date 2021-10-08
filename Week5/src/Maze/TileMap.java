@@ -207,7 +207,7 @@ public class TileMap {
         }
         case LEVEL_EIGHT: {
             setDimensions(19,19);
-            setBlockSize(40);
+            setBlockSize(30);
             makeHorizontalPath(1,4,3);
             makeVerticalPath(4,1,3);
             makeHorizontalPath(4,7,1);

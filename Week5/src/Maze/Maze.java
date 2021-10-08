@@ -125,12 +125,12 @@ public class Maze {
                 displayInstructions();
             }
         });
-        title.highScoreButton.addActionListener(new ActionListener() {
+       /* title.highScoreButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
             }
-        });
+        }); */
     }
 
     /******************************************************

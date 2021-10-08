@@ -179,17 +179,17 @@ class TitleScreen  {
         Title = new JLabel ("Maze Game");
         startButton = new JButton ("Start");
         instructionsButton = new JButton ("Instructions");
-        highScoreButton = new JButton ("High Scores");
+        //highScoreButton = new JButton ("High Scores");
         titleFrame.setSize(300,300);
         Title.setBounds (5,5,190,60);
         Title.setFont( new Font("Comic Sans", Font.PLAIN, 24) );
         startButton.setBounds(50,70,200,40);
         instructionsButton.setBounds(50,120,200,40);
-        highScoreButton.setBounds(50,170,200,40);
+        //highScoreButton.setBounds(50,170,200,40);
         titleFrame.add(Title);
         titleFrame.add(startButton);
         titleFrame.add(instructionsButton);
-        titleFrame.add(highScoreButton);
+        //titleFrame.add(highScoreButton);
         titleFrame.setVisible(true);
 
 
