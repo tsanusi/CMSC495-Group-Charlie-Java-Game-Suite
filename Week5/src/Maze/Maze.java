@@ -147,7 +147,7 @@ public class Maze {
                         "Avoid the Red Guys. \n" +
                         "Use W,A,S,D or the Arrow keys to move your character",
                 "Instructions:",
-                JOptionPane.WARNING_MESSAGE);
+                JOptionPane.NO_OPTION);
     }
 
     /*******************************************************
@@ -192,6 +192,10 @@ public class Maze {
             case 6: { maze = new Maze(LevelNames.LEVEL_SIX, dc,h,m,s);break; }
             case 7: { maze = new Maze(LevelNames.LEVEL_SEVEN, dc,h,m,s); break; }
             case 8: { maze = new Maze(LevelNames.LEVEL_EIGHT, dc,h,m,s); break; }
+            case 9: {
+                Maze.levelNumber = 0;
+                gameWinSequence();
+            }
         }
         Container contentPane = maze.Frame.getContentPane();
         gameScreen.addKeyListener(kListener);
@@ -233,6 +237,12 @@ public class Maze {
     }
 
     private static void gameWinSequence () {
+        JFrame f = new JFrame("Congrats");
+        JOptionPane.showMessageDialog(f,"Congratualations, you survived the maze.\n" +
+                                                "Thank you for playing!\n" +
+                                                "Final Standings:\n" +
+                                                "Total Deaths:  "+ Maze.playerStanding.getDeathCount() +
+                                                "Total Time  : " + Maze.playerStanding.getCurrentTime());
 
     }
 }
