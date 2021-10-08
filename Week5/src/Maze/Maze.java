@@ -192,10 +192,7 @@ public class Maze {
             case 6: { maze = new Maze(LevelNames.LEVEL_SIX, dc,h,m,s);break; }
             case 7: { maze = new Maze(LevelNames.LEVEL_SEVEN, dc,h,m,s); break; }
             case 8: { maze = new Maze(LevelNames.LEVEL_EIGHT, dc,h,m,s); break; }
-            case 9: {
-                Maze.levelNumber = 0;
-                gameWinSequence();
-            }
+            case 9: { Maze.levelNumber = 0; gameWinSequence(); }
         }
         Container contentPane = maze.Frame.getContentPane();
         gameScreen.addKeyListener(kListener);
