@@ -1,6 +1,6 @@
 /* File: WordSearchProgram.java
  * Author: Sherry Funches
- * Revision Date: October 4, 2021
+ * Revision Date: October 8, 2021
  * Purpose: This class generates the GUI for the WordSearch Program. 
  * It allows the user to select a puzzle file and displays a word list and grid of letters
  * using data from that file. 
@@ -56,54 +56,57 @@ import javax.swing.filechooser.FileView;
 public class WordSearchProgram  extends JFrame implements MouseMotionListener, MouseListener{
 	
 	private File selectedPuzzleFile;
-	//Font of characters on word search puzzle board
+	//font of letters on the word search puzzle board
 	private Font letterFont = null;
-	//Letters (JLabels) placed on the puzzle board
+	//letters (JLabels) placed on the puzzle board
 	private ArrayList<JLabel> letters;
+	// this object processes a puzzle file
 	private PuzzleGenerator generator;
-	//Words hidden in the puzzle
+	//words hidden in the puzzle
 	private ArrayList<Word> words;
-	//words on word list panel
+	//words on the word list panel
 	 private Set <JLabel> wordListLabels;
-	//metrics for fonts in word list panel
+	//metrics for fonts on the word list panel
 	private FontMetrics wordListMetrics;
 	
-	//Is this the first puzzle upon opening programming
+	//Is this the first puzzle upon opening the program?
 	private boolean firstPuzzle = true;
 	
-	//highlights on word search puzzle board
+	//the user's highlights on the word search puzzle board
  	private ArrayList <Line2D.Double> lines = new ArrayList<Line2D.Double>();
+	
  	//coordinates etc for drawing highlights on the board
-    private double startx = 0.0;
-    private double starty = 0.0;
-    private boolean mouseDragged = false;
-    private int lineCounter =0;
-    // holds words and their strikethroughs for the word list panel
+    	private double startx = 0.0;
+   	private double starty = 0.0;
+    	private boolean mouseDragged = false;
+    	private int lineCounter =0;
+	
+    	//holds words and their strikethroughs for the word list panel
    	private HashMap<JComponent, Line2D.Double> strikeThroughs = new HashMap<JComponent,Line2D.Double>();
-    //Highlight while cursor is dragged over the puzzle board
+   	
+	//Highlight while cursor is dragged over the puzzle board
    	private Line2D.Double tempLine;
    	
-   	//Has the puzzle been submitted for a solution
-   	//Used to prevent drawing highlights after puzzle is solved 
+   	//Has the puzzle been submitted for a solution?
+   	//Used to prevent drawing highlights after puzzle has been solved 
    	private boolean isSolved = false;
     
-    //GUI Components
+	//GUI Components
    	private JButton selectButton;
-    private JButton submitButton;
-    private JButton undoButton;
-    private JButton clearButton;
-    private JButton loadButton;
-    private JButton infoButton;
-    private JTextArea selectedFileField;
-    private JPanel gridPanel;
-    private JPanel wordListPanel;
-    private JScrollPane wordListScrollPane;
+    	private JButton submitButton;
+    	private JButton undoButton;
+    	private JButton clearButton;
+    	private JButton loadButton;
+    	private JButton infoButton;
+    	private JTextArea selectedFileField;
+    	private JPanel gridPanel;
+    	private JPanel wordListPanel;
+    	private JScrollPane wordListScrollPane;
     
 	//constructor
 	public WordSearchProgram() {
 		//set up GUI
 		super("Word Search");
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // End program when window closes.
 		setResizable(true); 
 		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
 	
@@ -186,7 +189,7 @@ public class WordSearchProgram  extends JFrame implements MouseMotionListener, M
  			//add letters to panel
  			 for (JLabel letter: letters) {
  	        		 add(letter);
- 	        }	
+ 	        	}	
  		}
  		
  		protected void paintComponent(Graphics g) {
@@ -242,6 +245,7 @@ public class WordSearchProgram  extends JFrame implements MouseMotionListener, M
 
 	@Override
 	public void mousePressed(MouseEvent e) {
+		//get coordinates of mouse when pressed
 		startx = e.getX();
 		starty= e.getY();
 	}
@@ -249,8 +253,9 @@ public class WordSearchProgram  extends JFrame implements MouseMotionListener, M
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		
-		//if mouse is dragged but the puzzle has not been 
+		//if mouse is dragged and realeased but the puzzle has not been 
 		//submitted for scoring
+		//create a highlight to add to the panel
 		if (mouseDragged == true && isSolved == false) {
 			double x = e.getX();
 			double y = e.getY();
@@ -270,7 +275,8 @@ public class WordSearchProgram  extends JFrame implements MouseMotionListener, M
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
-		//draw highlight and update while mouse is dragged.
+		//draw highlight while mouse is dragged
+		//but has not been released
 		mouseDragged = true;
 		double x = e.getX();
 		double y = e.getY();
@@ -303,7 +309,7 @@ public class WordSearchProgram  extends JFrame implements MouseMotionListener, M
 		
 	}
 	
-	// method verifies that user wants to clear the board of highlights and strikethroughs
+	// method verifies that the user wants to clear the board of highlights and strikethroughs
 	private void checkClear() {
 		Object[] options = {"Yes", "No"};
 		int n = JOptionPane.showOptionDialog(this,
@@ -342,6 +348,7 @@ public class WordSearchProgram  extends JFrame implements MouseMotionListener, M
 		}
 	}
 	
+	//allows the user to select a puzzle file from a specified directory
 	private void selectPuzzleFile() {
 		File puzzleDirectory = new File ("./Word_Search/WordSearchPuzzles");
 		JFileChooser fc = new JFileChooser(puzzleDirectory);
@@ -362,7 +369,7 @@ public class WordSearchProgram  extends JFrame implements MouseMotionListener, M
 	}
 	
 
-	
+	//loads and displays the selected puzzle
 	private void loadPuzzle() {
 		if(selectedPuzzleFile == null) {
 			JOptionPane.showMessageDialog(this,
@@ -374,13 +381,12 @@ public class WordSearchProgram  extends JFrame implements MouseMotionListener, M
 		
 		//clear any existing marks:
 		clear();
+		//process puzzle file
 		generator = new PuzzleGenerator(selectedPuzzleFile, letterFont);
-		
 		letters = generator.getLetterLabels();
 		words = generator.getWords();
 		
-	
-		//create word search letter panel
+		//if not the first puzzle remove current panels for proper display
 		if (!firstPuzzle) {
 			this.getContentPane().remove(gridPanel);
 			wordListScrollPane.remove(wordListPanel);
@@ -390,6 +396,7 @@ public class WordSearchProgram  extends JFrame implements MouseMotionListener, M
 			firstPuzzle = false;
 		}
 		
+		//create word search letter panel and word list panel
 		gridPanel = new GridPanel();
 		wordListPanel = new WordListPanel();
 		gridPanel.addMouseListener(this);
@@ -408,7 +415,6 @@ public class WordSearchProgram  extends JFrame implements MouseMotionListener, M
 		revalidate();
 		repaint();
 		pack();	
-	
 	}
 	
 	//Creates panel to display list of words hidden in the puzzle
@@ -456,7 +462,7 @@ public class WordSearchProgram  extends JFrame implements MouseMotionListener, M
 			g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
 			AffineTransform savedTransform = g2.getTransform();
-			 
+			//draw strikethroughs through words on word list panel 
 			for (Component wordLabel: strikeThroughs.keySet()) {
 				Line2D.Double strikeThrough = strikeThroughs.get(wordLabel);
 				Color lineColor = Color.BLACK;
@@ -470,6 +476,8 @@ public class WordSearchProgram  extends JFrame implements MouseMotionListener, M
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
+			//if word on wordlist is clicked add or remove a strikethrough
+			
 			//get the clicked label
 			JLabel label = (JLabel)e.getComponent();
 			
@@ -516,7 +524,8 @@ public class WordSearchProgram  extends JFrame implements MouseMotionListener, M
 		}
 	}
 	
-	
+	//calculates and displays how many words the user found correctly 
+	// displays the words the user did not find by turning their font red
 	private void scorePuzzle() {
 		if(words == null) {
 			return;
@@ -544,7 +553,7 @@ public class WordSearchProgram  extends JFrame implements MouseMotionListener, M
 			    }
 			}
 		}
-		//Change all unfound words to RED
+		//Change all unfound words to red
 		for (Word word: unfoundWords) {
 			word.changeAllLetterColor(Color.RED);
 			
@@ -564,8 +573,6 @@ public class WordSearchProgram  extends JFrame implements MouseMotionListener, M
 
 	public static void main(String[] args) {
 		WordSearchProgram  gui = new WordSearchProgram();
-		//gui.pack();
-		//gui.setLocationRelativeTo(null);
 		gui.setVisible(true);
 		
 
