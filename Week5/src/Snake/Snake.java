@@ -1,4 +1,5 @@
-package Snake;// Snake.Snake Game
+package Snake;
+// Snake.Snake Game
 // CMSC 495                             
 // Professor: Mark Munoz                                   
 // Programmers: Oyewole Sanusi
