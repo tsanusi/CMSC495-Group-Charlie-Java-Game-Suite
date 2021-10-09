@@ -1,16 +1,17 @@
 /*
  * File: PuzzleGenerator.java
  * Author: Sherry Funches
- * Revision Date: October 3, 2021
+ * Revision Date: October 8, 2021
  * Purpose: This class reads in a formatted file that specifies the display of letters,
  * hidden words, and the location of hidden words for a word
  * search puzzle. The class creates JLabels representing the letters on the word search
- * grid and places them in the specified order to be added to the GUI.
+ * puzzle grid and places them in the specified order to be added to the GUI.
  * It creates words and the letters that comprise them for the GUI display and scoring.
  */
 
 
 package Word_Search;
+
 import java.awt.Font;
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,15 +23,20 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 
-
 public class PuzzleGenerator {
 	
+	//matrix representing the puzzle grid
 	private JLabel[][]letterMatrix;
+	//list of words hidden in the puzzle
 	private ArrayList<Word> words;
+	//input data file
 	private File puzzleDataFile;
 	private Font letterFont;
+	//number of rows in the puzzle grid
 	private int numRows = 0;
+	//number of columns in the puzzle grid
 	private int numColumns =0;
+	//number of words hidden in the puzzle
 	private int numWords = 0;
 	
 	
@@ -41,7 +47,8 @@ public class PuzzleGenerator {
 		readFile();
 	}
 	
-	//returns an ordered ArrayList of JLabels for the letters on the GRID
+	//Returns an ordered ArrayList of JLabels. Each JLabel is a letter.
+	//Used to fill out the GUI's puzzle grid
 	public ArrayList<JLabel> getLetterLabels(){
 		ArrayList<JLabel> letterList = new ArrayList<JLabel>();
 		for(int i=0; i<numRows; i++) {
@@ -52,7 +59,7 @@ public class PuzzleGenerator {
 		return letterList;
 	}
 	
-	//returns number of rows in the word search grid
+	//returns the number of rows in the word search grid
 	public int getNumRows() {
 		return numRows;
 	}
@@ -68,10 +75,10 @@ public class PuzzleGenerator {
 		return words;
 	}
 	
-	
+	//processes puzzle data file
 	private void readFile() {
 		
-		//Read In the file;
+		//Read In the file
 		BufferedReader inputStream= null;
 		String fileLine;
 		int lineCounter = 0;
@@ -84,7 +91,7 @@ public class PuzzleGenerator {
 				//split line by by tabs
 				String data[] =fileLine.trim().split("\t");
 				
-				//Read in first row, which has puzzle specifications
+				//Read in first row, which has the puzzle's specifications
 				if(lineCounter==0) {
 					numRows = Integer.parseInt(data[0].trim());
 					numColumns = Integer.parseInt(data[1].trim());
