@@ -17,8 +17,9 @@ public class ButtonController implements ActionListener {
             game.newGame();
         else if (e.getActionCommand().equals("Check"))
             game.checkGame();
-        else if (e.getActionCommand().equals("Exit"))
-            System.exit(0);
+        //Removing the "Exit" button due to it exiting the whole program. -JJ
+        /*else if (e.getActionCommand().equals("Exit"))
+            System.exit(0);*/
         else if (e.getActionCommand().equals("Help on"))
             game.setHelp(((JCheckBox)e.getSource()).isSelected());
         else
