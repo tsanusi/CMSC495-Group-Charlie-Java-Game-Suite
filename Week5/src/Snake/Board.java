@@ -66,13 +66,13 @@ public class Board extends JPanel implements ActionListener {
 
     private void loadImages() {
 
-        ImageIcon iid = new ImageIcon("src/Snake/resources/dot.png");
+        ImageIcon iid = new ImageIcon("./Snake/resources/dot.png");
         ball = iid.getImage();
 
-        ImageIcon iia = new ImageIcon("src/Snake/resources/apple.png");
+        ImageIcon iia = new ImageIcon("./Snake/resources/apple.png");
         apple = iia.getImage();
 
-        ImageIcon iih = new ImageIcon("src/Snake/resources/head.png");
+        ImageIcon iih = new ImageIcon("./Snake/resources/head.png");
         head = iih.getImage();
     }
 
