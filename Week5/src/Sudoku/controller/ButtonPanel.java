@@ -16,7 +16,7 @@ import javax.swing.JToggleButton;
 import Sudoku.controller.model.UpdateAction;
 
 public class ButtonPanel extends JPanel implements Observer {
-    JButton btnNew, btnCheck, btnExit;   
+    JButton btnNew, btnCheck; //btnExit;   //Removing btnExit. -JJ
     JCheckBox cbHelp;               
     ButtonGroup bgNumbers;          
     JToggleButton[] btnNumbers;     
@@ -40,9 +40,9 @@ public class ButtonPanel extends JPanel implements Observer {
         btnCheck.setFocusable(false);
         pnlOptions.add(btnCheck);
 
-        btnExit = new JButton("Exit");
+        /*btnExit = new JButton("Exit");
         btnExit.setFocusable(false);
-        pnlOptions.add(btnExit);
+        pnlOptions.add(btnExit);*/
 
         JPanel pnlNumbers = new JPanel();
         pnlNumbers.setLayout(new BoxLayout(pnlNumbers, BoxLayout.PAGE_AXIS));
@@ -82,7 +82,7 @@ public class ButtonPanel extends JPanel implements Observer {
     public void setController(ButtonController buttonController) {
         btnNew.addActionListener(buttonController);
         btnCheck.addActionListener(buttonController);
-        btnExit.addActionListener(buttonController);
+        //btnExit.addActionListener(buttonController);
         cbHelp.addActionListener(buttonController);
         for (int i = 0; i < 9; i++)
             btnNumbers[i].addActionListener(buttonController);
