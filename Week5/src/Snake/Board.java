@@ -1,4 +1,5 @@
-package Snake;// Snake.Snake Game
+package Snake;
+
 // CMSC 495                             
 // Professor: Mark Munoz                                   
 // Programmers: Oyewole Sanusi
@@ -65,13 +66,13 @@ public class Board extends JPanel implements ActionListener {
 
     private void loadImages() {
 
-        ImageIcon iid = new ImageIcon("src/Snake.Slider_Puzzle.resources/dot.png");
+        ImageIcon iid = new ImageIcon("./Snake/resources/dot.png");
         ball = iid.getImage();
 
-        ImageIcon iia = new ImageIcon("src/Snake.Slider_Puzzle.resources/apple.png");
+        ImageIcon iia = new ImageIcon("./Snake/resources/apple.png");
         apple = iia.getImage();
 
-        ImageIcon iih = new ImageIcon("src/Snake.Slider_Puzzle.resources/head.png");
+        ImageIcon iih = new ImageIcon("./Snake/resources/head.png");
         head = iih.getImage();
     }
 
