@@ -156,7 +156,7 @@ public class Maze {
      * completed.                                          *
      * @param winLevel                                     *
      *******************************************************/
-    public static void gameLevelSequence(boolean winLevel) {
+    public static  void gameLevelSequence(boolean winLevel) {
         if (winLevel) {
             levelNumber++;
         }
