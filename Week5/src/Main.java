@@ -87,11 +87,11 @@ public class Main {
                                 "Fall 2021\n" +
                                 "Mark Munoz: Professor\n\n" +
                                 "Credits:\n\n" +
-                                "(Oyewole: Creation of Doc outline and Snake.Snake Game\n " +
+                                "(Oyewole: Creation of Doc outline and Snake Game\n " +
                                 "Sherry: Word_Search.WordSearchProgram\n" +
                                 "Jeffrey: \n" +
                                 "Janee: \n" +
-                                "Wayne Mack: Main Menu design and Maze.Maze Game\n",
+                                "Wayne Mack: Main Menu design and Maze Game\n",
                         "CMSC 495 Game Suite",
                         JOptionPane.PLAIN_MESSAGE);
             }
