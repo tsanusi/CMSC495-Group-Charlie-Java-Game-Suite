@@ -10,17 +10,32 @@ package Maze;
 // The class displays the game screen for   //
 // the maze game.                           //
 //////////////////////////////////////////////
+/*********************************************
+ * All imports Used                          *
+ *********************************************/
 import javax.swing.*;
 import java.awt.*;
-
 import java.io.IOException;
+/*********************************************
+ * Enumeration for mouth state               *
+ *********************************************/
 enum Mouth {SMILE,CAUTIOUS,MAD}
 
+/*********************************************
+ * The GameScreen class contains the         *
+ * information for the display               *
+ *********************************************/
 public class GameScreen extends Canvas {
     int BLOCK_SIZE = 50;
     int xTotalDimensions;
     int yTotalDimensions;
     boolean mazeIsDrawn;
+
+    /**************************************************
+     * GameScreen constructor                         *
+     * @param blockSize                               *
+     * @param mItems                                  *
+     **************************************************/
     GameScreen ( int blockSize, MazeItems[][] mItems) {
         this.BLOCK_SIZE = blockSize;
         this.xTotalDimensions = BLOCK_SIZE * mItems.length;
@@ -28,6 +43,13 @@ public class GameScreen extends Canvas {
         mazeIsDrawn = false;
         Toolkit t=Toolkit.getDefaultToolkit();
     }
+
+    /***************************************************
+     * The paint method has all of the graphics        *
+     * information. This is ran whenever the screen    *
+     * refreshes                                       *
+     * @param g                                        *
+     ***************************************************/
     public void paint(Graphics g) {
         g.setColor(Color.GRAY);
         g.drawRect(0, 0, xTotalDimensions, yTotalDimensions);
