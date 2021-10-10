@@ -109,7 +109,7 @@ public class Maze {
      * @param args                                 *
      ***********************************************/
     public static void main (String [] args) {
-        levelNumber = 1;
+        levelNumber = 0;
         TitleScreen title = new TitleScreen();
         title.startButton.addActionListener(new ActionListener() {
 
@@ -165,7 +165,8 @@ public class Maze {
             levelSelector(levelNumber,0,0,0,0);
         }
         else if (levelNumber > 8) {
-            //win Game Sequence
+            levelNumber = 0;
+            gameWinSequence();
         }
         else {
             levelSelector(levelNumber, playerStanding.deathCount,
@@ -192,10 +193,10 @@ public class Maze {
             case 6: { maze = new Maze(LevelNames.LEVEL_SIX, dc,h,m,s);break; }
             case 7: { maze = new Maze(LevelNames.LEVEL_SEVEN, dc,h,m,s); break; }
             case 8: { maze = new Maze(LevelNames.LEVEL_EIGHT, dc,h,m,s); break; }
-            case 9: { Maze.levelNumber = 0; gameWinSequence(); }
         }
-        Container contentPane = maze.Frame.getContentPane();
-        gameScreen.addKeyListener(kListener);
+            Container contentPane = maze.Frame.getContentPane();
+            gameScreen.addKeyListener(kListener);
+
     }
 
     /**********************************************************************
