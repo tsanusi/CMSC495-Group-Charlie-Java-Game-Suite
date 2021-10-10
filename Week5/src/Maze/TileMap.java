@@ -2,6 +2,7 @@ package Maze;
 
 //////////////////////////////////////////////
 // CMSC 495 - Fall 2021                     //
+// Wayne Alexander Mack Jr.                 //
 // Professor Mark Munoz                     //
 //------------------------------------------//
 // Maze Game                                //
