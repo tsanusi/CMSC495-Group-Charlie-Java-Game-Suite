@@ -148,6 +148,7 @@ public class Maze {
                         "Use W,A,S,D or the Arrow keys to move your character",
                 "Instructions:",
                 JOptionPane.NO_OPTION);
+
     }
 
     /*******************************************************
@@ -165,7 +166,6 @@ public class Maze {
             levelSelector(levelNumber,0,0,0,0);
         }
         else if (levelNumber > 8) {
-            levelNumber = 0;
             gameWinSequence();
         }
         else {
@@ -193,6 +193,7 @@ public class Maze {
             case 6: { maze = new Maze(LevelNames.LEVEL_SIX, dc,h,m,s);break; }
             case 7: { maze = new Maze(LevelNames.LEVEL_SEVEN, dc,h,m,s); break; }
             case 8: { maze = new Maze(LevelNames.LEVEL_EIGHT, dc,h,m,s); break; }
+
         }
             Container contentPane = maze.Frame.getContentPane();
             gameScreen.addKeyListener(kListener);
@@ -241,6 +242,97 @@ public class Maze {
                                                 "Final Standings:\n" +
                                                 "Total Deaths:  "+ Maze.playerStanding.getDeathCount() +
                                                 "Total Time  : " + Maze.playerStanding.getCurrentTime());
+        levelSelectScreen();
+    }
 
+    private static void levelSelectScreen() {
+        System.out.println("LevelSelectScreen");
+        JFrame frame = new JFrame("Level Select");
+        JPanel panel = new JPanel();
+        frame.setSize(270,290);
+        panel.setSize(270,290);
+        panel.setLayout(null);
+        JButton levelOne = new JButton("1");
+        JButton levelTwo = new JButton("2");
+        JButton levelThree = new JButton("3");
+        JButton levelFour = new JButton("4");
+        JButton levelFive = new JButton("5");
+        JButton levelSix = new JButton("6");
+        JButton levelSeven = new JButton("7");
+        JButton levelEight = new JButton("8");
+        levelOne.setBounds(20,20,50,50);
+        levelFour.setBounds(20,100,50,50);
+        levelSeven.setBounds(20,180,50,50);
+        levelTwo.setBounds(100,20,50,50);
+        levelFive.setBounds(100,100,50,50);
+        levelEight.setBounds(100,180,50,50);
+        levelThree.setBounds(180,20,50,50);
+        levelSix.setBounds(180,100,50,50);
+        panel.add(levelOne);
+        panel.add(levelTwo);
+        panel.add(levelThree);
+        panel.add(levelFour);
+        panel.add(levelFive);
+        panel.add(levelSix);
+        panel.add(levelSeven);
+        panel.add(levelEight);
+        frame.add(panel);
+        frame.setVisible(true);
+        levelOne.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                playerStanding = new PlayerStanding();
+                levelSelector(1,0,0,0,0);
+            }
+        });
+        levelTwo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                playerStanding = new PlayerStanding();
+                levelSelector(2,0,0,0,0);
+            }
+        });
+        levelThree.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                playerStanding = new PlayerStanding();
+                levelSelector(3,0,0,0,0);
+            }
+        });
+        levelFour.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                playerStanding = new PlayerStanding();
+                levelSelector(4,0,0,0,0);
+            }
+        });
+        levelFive.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                playerStanding = new PlayerStanding();
+                levelSelector(5,0,0,0,0);
+            }
+        });
+        levelSix.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                playerStanding = new PlayerStanding();
+                levelSelector(6,0,0,0,0);
+            }
+        });
+        levelSeven.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                playerStanding = new PlayerStanding();
+                levelSelector(7,0,0,0,0);
+            }
+        });
+        levelEight.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                playerStanding = new PlayerStanding();
+                levelSelector(8,0,0,0,0);
+            }
+        });
     }
 }
